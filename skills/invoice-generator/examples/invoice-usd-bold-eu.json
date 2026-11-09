@@ -1,0 +1,84 @@
+{
+  "theme": "bold",
+  "currency": "USD",
+  "invoice": {
+    "number": "INV-2026-0042",
+    "issue_date": "2026-11-02",
+    "due_days": 30,
+    "po_number": "PO-7781",
+    "notes": "Thank you for your business. Late payments may incur interest as agreed in the contract."
+  },
+  "seller": {
+    "name": "Northwind Studio GmbH",
+    "address": [
+      "Beispielweg 12",
+      "10115 Berlin, Germany"
+    ],
+    "tax_id": "VAT DE000000000",
+    "email": "billing@northwind-studio.example",
+    "phone": "+49 30 0000 0000",
+    "logo_text": "NS"
+  },
+  "buyer": {
+    "name": "Alder & Finch Ltd",
+    "contact": "Accounts Payable",
+    "address": [
+      "14 Example Street",
+      "Dublin 2, Ireland"
+    ],
+    "tax_id": "VAT IE0000000A"
+  },
+  "items": [
+    {
+      "description": "Brand strategy workshop (2 days)",
+      "details": "On-site facilitation and workbook",
+      "quantity": 2,
+      "unit": "day",
+      "unit_price": 1450.0,
+      "tax_rate": 19
+    },
+    {
+      "description": "Visual identity system",
+      "details": "Logo, palette, typography, guidelines PDF",
+      "quantity": 1,
+      "unit": "project",
+      "unit_price": 6800.0,
+      "discount_percent": 10,
+      "tax_rate": 19
+    },
+    {
+      "description": "Website copywriting",
+      "details": "12 pages, two revision rounds",
+      "quantity": 12,
+      "unit": "page",
+      "unit_price": 185.5,
+      "tax_rate": 19
+    },
+    {
+      "description": "Printed brand books",
+      "quantity": 25,
+      "unit": "pc",
+      "unit_price": 18.4,
+      "tax_rate": 7
+    }
+  ],
+  "discount": {
+    "label": "Promo",
+    "amount": 100
+  },
+  "shipping": {
+    "label": "Courier",
+    "amount": 42.0,
+    "tax_rate": 19
+  },
+  "payment": {
+    "method": "Bank transfer",
+    "bank": "Example Bank",
+    "account_name": "Northwind Studio GmbH",
+    "iban": "DE00 0000 0000 0000 0000 00",
+    "account_ref": "INV-2026-0042",
+    "terms": "Net 30"
+  },
+  "amount_paid": 5000,
+  "number_style": "eu"
+}

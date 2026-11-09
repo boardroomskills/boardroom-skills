@@ -1,0 +1,5 @@
+{
+  "navy":     {"font": "Calibri", "accent": "1F3A5F", "text": "1E2430", "muted": "5B6472", "sidebar": "EEF2F7"},
+  "teal":     {"font": "Calibri", "accent": "0E6B73", "text": "1E2430", "muted": "5B6472", "sidebar": "E9F3F3"},
+  "graphite": {"font": "Arial",   "accent": "2B2B2B", "text": "1A1A1A", "muted": "666666", "sidebar": "F0F0F0"}
+}

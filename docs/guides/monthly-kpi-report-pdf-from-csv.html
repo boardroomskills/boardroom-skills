@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Create a Monthly KPI Report PDF from a CSV with AI</title>
+<meta name="description" content="Turn a CSV of monthly metrics into an answer-first PDF KPI report with tiles, trend charts and commentary, using Claude Code and a free skill.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://boardroomskills.github.io/boardroom-skills/guides/monthly-kpi-report-pdf-from-csv.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boardroom Skills">
+<meta property="og:title" content="How to Create a Monthly KPI Report PDF from a CSV with AI">
+<meta property="og:description" content="Turn a CSV of monthly metrics into an answer-first PDF KPI report with tiles, trend charts and commentary, using Claude Code and a free skill.">
+<meta property="og:url" content="https://boardroomskills.github.io/boardroom-skills/guides/monthly-kpi-report-pdf-from-csv.html">
+<meta property="og:image" content="https://boardroomskills.github.io/boardroom-skills/img/investor-pitch-deck.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.art{max-width:760px;margin:0 auto}
+.crumb{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.crumb a{color:var(--muted)}
+.art h1{max-width:none;font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 12px}
+.art .lede{max-width:none}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.art h2{font-size:clamp(1.3rem,3.2vw,1.6rem);margin:36px 0 8px}
+.art h3{font-size:1.08rem;margin:22px 0 4px}
+.art p,.art li{max-width:68ch}
+.art ol,.art ul{padding-left:22px}.art li{margin:6px 0}
+.tldr{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;margin:16px 0}
+.tldr p{margin:0}
+figure{margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:12px 0 20px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:36px 0 12px;box-shadow:var(--shadow)}
+.prod h2{margin:0 0 6px;font-size:1.25rem}
+.prod p{margin:6px 0}
+.prod .cta{margin-top:12px}
+.btn.sm{padding:8px 14px;min-height:40px;font-size:.92rem}
+.related{margin:28px 0}
+.related ul{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related li{margin:0}.related a{display:block;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem}
+.related a:hover{border-color:var(--ink)}
+.disc{color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px;margin-top:20px}
+.art pre,.art td,.art th,.art p,.art li{overflow-wrap:anywhere}
+.art pre{overflow-wrap:normal}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to create a monthly KPI report PDF from a CSV with AI", "description": "Turn a CSV of monthly metrics into an answer-first PDF KPI report with tiles, trend charts and commentary, using Claude Code and a free skill.", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://boardroomskills.github.io/boardroom-skills/guides/monthly-kpi-report-pdf-from-csv.html", "author": {"@type": "Organization", "name": "Boardroom Skills"}, "publisher": {"@type": "Organization", "name": "Boardroom Skills"}, "image": "https://boardroomskills.github.io/boardroom-skills/guides/img/kpi-headline.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to create a monthly KPI report PDF from a CSV with AI", "description": "Turn a CSV of monthly metrics into an answer-first PDF KPI report with tiles, trend charts and commentary, using Claude Code and a free skill.", "step": [{"@type": "HowToStep", "position": 1, "name": "Shape the CSV", "text": "One row per month, a YYYY-MM month column, one numeric column per metric."}, {"@type": "HowToStep", "position": 2, "name": "Write the notes file", "text": "Define metrics, targets, direction, the headline answer, up to three key points, risks and next steps."}, {"@type": "HowToStep", "position": 3, "name": "Use placeholders for numbers", "text": "Reference values as tokens so text is filled from the CSV, never typed."}, {"@type": "HowToStep", "position": 4, "name": "Run the build", "text": "Run the report script to produce the PDF."}, {"@type": "HowToStep", "position": 5, "name": "Check every page", "text": "Render the pages to images, read them, and check the prose against the appendix table."}]}</script>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../index.html">Boardroom<b>Skills</b></a>
+    <nav><a href="../index.html#gallery">Gallery</a><a href="../index.html#install">Install</a><a href="../index.html#pricing" class="keep">Pricing</a><a href="index.html" class="keep">Guides</a><a href="../index.html#faq">FAQ</a></nav>
+  </header>
+  <main class="art">
+    <p class="crumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a></p>
+    <h1>How to create a monthly KPI report PDF from a CSV with AI</h1>
+    <p class="lede">From a spreadsheet of monthly numbers to a short, answer-first PDF report with KPI tiles, trend charts and commentary, built by a script so the prose cannot disagree with the data.</p>
+    <p class="meta">By Boardroom Skills &middot; Updated 2026-11-09 &middot; About 4 min read</p>
+<div class="tldr"><p><strong>Short version:</strong> keep the numbers in a CSV, keep the words in a notes file that refers to those numbers by name, and let a script build the PDF. Then the commentary cannot contradict the data, and next month you change one file and rebuild. The free <code>monthly-kpi-report</code> skill does exactly this.</p></div>
+
+<figure><img src="img/kpi-headline.png" alt="First page of a monthly KPI report with an answer-first headline and KPI tiles" width="497" height="702" loading="lazy"><figcaption>Page 1 of the example report: the answer, three reasons, and KPI tiles. Company and numbers are fictional.</figcaption></figure>
+
+<h2>Why a script beats pasting a CSV into a chat</h2>
+<p>You can paste a table into an AI chat and ask for a report. It usually works once. The trouble starts in month two: the layout changes, a number in the paragraph is rounded differently from the chart, and you cannot tell which figure the model quietly retyped. Using Claude Code to run a script avoids that. The data flows from the file to the chart and the text by code, not by retyping.</p>
+
+<h2>Step 1: Shape the CSV</h2>
+<p>Use one row per month and one column per metric. The first column is the month as <code>YYYY-MM</code>. Percentages are plain numbers (<code>62.4</code> means 62.4%). Include at least the reporting month and the month before, and ideally twelve months so trend charts have something to show.</p>
+<pre><code>month,revenue,gross_margin,new_customers,churn,cac,cash
+2025-04,276391,60.6,123,2.26,413,857503
+2025-05,283195,60.8,126,2.34,409,862295</code></pre>
+<p>This is a &ldquo;wide&rdquo; layout. If your export is long (one row per metric per month), ask Claude Code to pivot it first and show you the result before you go on.</p>
+
+<h2>Step 2: Decide the answer before you write anything</h2>
+<p>A good management report leads with its conclusion. This is the Pyramid Principle: state the answer, give up to three supporting reasons, then show evidence. Before writing, look at each metric against last month and against target and finish this sentence: &ldquo;The one thing the reader needs to know or decide is&hellip;&rdquo;</p>
+<p>Write headlines that carry a verdict. &ldquo;Revenue is 2% behind plan because churn spiked&rdquo; works. &ldquo;Revenue update&rdquo; does not. If you are unsure of the cause, say so in the text (&ldquo;cause to be confirmed&rdquo;) rather than inventing a plausible one. Causes are the one thing the data cannot tell the agent.</p>
+
+<h2>Step 3: Write the notes file</h2>
+<p>The skill reads a short markdown-style file. It has a few header lines, a metrics list, and the text of the report:</p>
+<pre><code>company: Tidewater Goods Co.
+period: 2026-09
+currency: $
+
+## Metrics
+revenue | Revenue | currency | up | 470000 | bar
+churn   | Monthly churn | percent | down | 2.0
+
+## Headline
+Revenue grew {revenue.mom} to {revenue} in {period_label}, but
+churn at {churn} is the one issue that needs a decision.</code></pre>
+<p>Each metric line is: key, label, type, whether higher is better, target (optional) and chart style (optional). Marking churn and cost metrics as &ldquo;down&rdquo; matters: it tells the report that a fall is good news, so the colour and arrow are right.</p>
+
+<h2>Step 4: Use tokens for every number</h2>
+<p>Notice the curly-brace tokens above. <code>{revenue}</code> is the latest value, <code>{revenue.prev}</code> last month, <code>{revenue.mom}</code> the month-on-month change, <code>{revenue.target}</code> the target and <code>{revenue.vs_target}</code> the gap to it. The script fills them from the CSV, and it aborts if you reference a key that does not exist. That one rule removes the most common failure in AI-written reports: a sentence that says 4.1% when the chart says 3.9%.</p>
+<p>The rest of the notes file has two to four key points (three is ideal), each tied to a metric and a short paragraph, then risks and next steps as bullets of the form <code>text | owner | due date or mitigation</code>. Give owners and dates only if you know them.</p>
+
+<h2>Step 5: Install the skill and build</h2>
+<pre><code>git clone https://github.com/boardroomskills/boardroom-skills.git
+cp -r boardroom-skills/skills/monthly-kpi-report ~/.claude/skills/
+pip install -r ~/.claude/skills/monthly-kpi-report/requirements.txt</code></pre>
+<p>Then ask Claude Code: &ldquo;Use the monthly-kpi-report skill to build a report from data.csv. Ask me for targets and the likely causes of any misses; do not guess them.&rdquo; The script call underneath is:</p>
+<pre><code>python3 scripts/build_report.py --csv data.csv --notes notes.md --out report.pdf</code></pre>
+<p>It uses reportlab and matplotlib, needs no network access and no API key, and uses the built-in Helvetica font so there is nothing to install for typography.</p>
+<figure><div class="row"><img src="img/kpi-trends.png" alt="Trend charts page with a direct label on the latest value and a dashed target line" width="497" height="702" loading="lazy"><img src="img/kpi-commentary.png" alt="Commentary page with one block per reason, each with its chart" width="497" height="702" loading="lazy"></div><figcaption>Pages 2 and 3: twelve-month trends, then commentary, risks and next steps.</figcaption></figure>
+
+<h2>Step 6: Check every page</h2>
+<p>Do not forward the PDF unread. Render it and look:</p>
+<pre><code>pdftoppm -png -r 60 report.pdf out/p</code></pre>
+<p>Then run through this list:</p>
+<ul>
+<li>Is any text clipped, or does it collide with a chart label?</li>
+<li>For lower-is-better metrics (churn, CAC), do the arrow and colour show an increase as bad?</li>
+<li>Does every number in the prose match the appendix table?</li>
+<li>Is any section empty, or does placeholder text remain?</li>
+<li>Does the headline sentence still say something true after you re-read the data?</li>
+</ul>
+
+<h2>Making it a monthly routine</h2>
+<p>The real payoff is month two. Keep the notes file in the same folder as the CSV and treat it like a template. Each month, append the new row to the CSV, change <code>period:</code>, update targets if they moved, and rewrite only the parts that are your judgement: the headline verdict, the causes, the risks. Because the figures are tokens, you do not retype any of them. Keep each month&rsquo;s PDF and its two input files together so you can reproduce a past report exactly. If you have a repository for your reporting, commit the inputs, not just the output, and a colleague can rebuild the same report without you.</p>
+
+<h2>Limits to know about</h2>
+<ul>
+<li>One target per metric, for the reporting month only.</li>
+<li>Four to six headline metrics. More than that and the first page stops being readable.</li>
+<li>Wide CSV only, and the layout is fixed (A4 portrait). A different page size or a branded template means editing the script.</li>
+<li>The script computes; it does not explain. Causes, decisions and owners come from you.</li>
+</ul>
+<p>If your audience is a board rather than a management team, the same data may be better presented as slides; see <a href="board-deck-qbr-template-ai.html">the board deck and QBR guide</a>. If you want the numbers as a model with scenarios, see <a href="excel-financial-model-with-ai.html">the Excel financial model guide</a>.</p>
+
+<aside class="prod"><h2>About the tool in this guide</h2><p>Boardroom Skills is a set of Agent Skills for Claude Code, Codex and Cursor that I make and sell. The <code>monthly-kpi-report</code> skill used here is in the free tier (MIT licence), so you can follow this guide without paying anything. PRO adds eight more skills (board deck, financial model, contract review and others) for $9.99 a month, $79 a year, or a $49 founding lifetime price for the first 100 buyers, until 9 December 2026. Output is a first draft: read it before it leaves your hands.</p><div class="cta"><a class="btn sm" href="https://github.com/boardroomskills/boardroom-skills">Get the free skills</a> <a class="btn sm ghost" href="../index.html#pricing">See pricing</a></div></aside>
+<nav class="related" aria-label="More guides"><h2>More guides</h2><ul><li><a href="make-pitch-deck-with-claude-code.html">Pitch deck with Claude Code</a></li><li><a href="excel-financial-model-with-ai.html">Excel financial model with AI</a></li><li><a href="claude-code-skills-for-powerpoint.html">Claude skills for PowerPoint</a></li><li><a href="consulting-proposal-sow-with-claude-code.html">Consulting proposal and SOW</a></li><li><a href="board-deck-qbr-template-ai.html">Board deck and QBR template</a></li><li><a href="what-are-claude-agent-skills-and-how-to-install.html">Agent Skills explained and installed</a></li><li><a href="ai-contract-review-summary-safely.html">AI contract review, safely</a></li></ul></nav>
+    <p class="disc">Disclosure: I make and sell Boardroom Skills. Nothing here is legal, financial or investment advice. Company names and numbers in screenshots are fictional.</p>
+  </main>
+  <footer><p>Boardroom Skills. All company names, people and numbers in the examples are fictional. Free skills: MIT. PRO: commercial licence. <a href="../index.html">Home</a> &middot; <a href="index.html">Guides</a> &middot; <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p></footer>
+</div>
+</body>
+</html>

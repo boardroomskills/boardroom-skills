@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Write a Consulting Proposal and SOW with Claude Code</title>
+<meta name="description" content="A step-by-step method for writing a client-ready consulting proposal and statement of work with Claude Code: structure, pricing options, assumptions and legal placeholders.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://boardroomskills.github.io/boardroom-skills/guides/consulting-proposal-sow-with-claude-code.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boardroom Skills">
+<meta property="og:title" content="How to Write a Consulting Proposal and SOW with Claude Code">
+<meta property="og:description" content="A step-by-step method for writing a client-ready consulting proposal and statement of work with Claude Code: structure, pricing options, assumptions and legal placeholders.">
+<meta property="og:url" content="https://boardroomskills.github.io/boardroom-skills/guides/consulting-proposal-sow-with-claude-code.html">
+<meta property="og:image" content="https://boardroomskills.github.io/boardroom-skills/img/investor-pitch-deck.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.art{max-width:760px;margin:0 auto}
+.crumb{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.crumb a{color:var(--muted)}
+.art h1{max-width:none;font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 12px}
+.art .lede{max-width:none}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.art h2{font-size:clamp(1.3rem,3.2vw,1.6rem);margin:36px 0 8px}
+.art h3{font-size:1.08rem;margin:22px 0 4px}
+.art p,.art li{max-width:68ch}
+.art ol,.art ul{padding-left:22px}.art li{margin:6px 0}
+.tldr{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;margin:16px 0}
+.tldr p{margin:0}
+figure{margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:12px 0 20px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:36px 0 12px;box-shadow:var(--shadow)}
+.prod h2{margin:0 0 6px;font-size:1.25rem}
+.prod p{margin:6px 0}
+.prod .cta{margin-top:12px}
+.btn.sm{padding:8px 14px;min-height:40px;font-size:.92rem}
+.related{margin:28px 0}
+.related ul{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related li{margin:0}.related a{display:block;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem}
+.related a:hover{border-color:var(--ink)}
+.disc{color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px;margin-top:20px}
+.art pre,.art td,.art th,.art p,.art li{overflow-wrap:anywhere}
+.art pre{overflow-wrap:normal}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to write a consulting proposal or SOW with Claude Code", "description": "A step-by-step method for writing a client-ready consulting proposal and statement of work with Claude Code: structure, pricing options, assumptions and legal placeholders.", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://boardroomskills.github.io/boardroom-skills/guides/consulting-proposal-sow-with-claude-code.html", "author": {"@type": "Organization", "name": "Boardroom Skills"}, "publisher": {"@type": "Organization", "name": "Boardroom Skills"}, "image": "https://boardroomskills.github.io/boardroom-skills/guides/img/sow-cover.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to write a consulting proposal or SOW with Claude Code", "description": "A step-by-step method for writing a client-ready consulting proposal and statement of work with Claude Code: structure, pricing options, assumptions and legal placeholders.", "step": [{"@type": "HowToStep", "position": 1, "name": "Write down the client brief", "text": "Capture the client problem in their words, scope, timeline and your prices."}, {"@type": "HowToStep", "position": 2, "name": "Structure the proposal", "text": "Executive summary, understanding, phased approach, deliverables, assumptions, pricing options, terms, signature."}, {"@type": "HowToStep", "position": 3, "name": "Generate the draft", "text": "Prompt Claude Code, or run the free proposal skill, to produce a .docx and PDF."}, {"@type": "HowToStep", "position": 4, "name": "Keep legal terms as placeholders", "text": "Insert your lawyer’s text for terms; do not let the AI draft them."}, {"@type": "HowToStep", "position": 5, "name": "Cross-check and send", "text": "Verify prices, weeks and deliverable references match everywhere."}]}</script>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../index.html">Boardroom<b>Skills</b></a>
+    <nav><a href="../index.html#gallery">Gallery</a><a href="../index.html#install">Install</a><a href="../index.html#pricing" class="keep">Pricing</a><a href="index.html" class="keep">Guides</a><a href="../index.html#faq">FAQ</a></nav>
+  </header>
+  <main class="art">
+    <p class="crumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a></p>
+    <h1>How to write a consulting proposal or SOW with Claude Code</h1>
+    <p class="lede">A proposal wins on clarity: what the client said, what you will do, what it costs and what is out of scope. This guide shows how to have Claude Code draft all of that as an editable Word file, without letting it invent facts or legal terms.</p>
+    <p class="meta">By Boardroom Skills &middot; Updated 2026-11-09 &middot; About 4 min read</p>
+<div class="tldr"><p><strong>Short version:</strong> a proposal that wins usually restates the client&rsquo;s problem in their words, shows a phased plan with deliverables you can check, and offers three priced options. Claude Code can draft all of it as an editable <code>.docx</code>. You supply the facts and prices; legal terms stay as placeholders for a lawyer.</p></div>
+
+<figure><div class="row"><img src="img/sow-cover.png" alt="Proposal cover page" width="497" height="702" loading="lazy"><img src="img/sow-summary.png" alt="Executive summary page with an at-a-glance box" width="497" height="702" loading="lazy"><img src="img/sow-pricing.png" alt="Pricing page with Good, Better and Best options" width="497" height="702" loading="lazy"></div><figcaption>Cover, executive summary and pricing pages from the example proposal for a fictional client.</figcaption></figure>
+
+<h2>Proposal or SOW: what is the difference?</h2>
+<p>People use the words loosely. A proposal persuades: it shows you understand the problem and why your approach is right. A statement of work (SOW) specifies: scope, deliverables, schedule, assumptions and what is excluded. For small consulting engagements it is common, and sensible, to combine them into one document that does both. A SOW is also usually the thing attached to a contract, which is why the legal terms are a separate matter, covered below.</p>
+
+<h2>Step 1: Write the brief down first</h2>
+<p>Before you open Claude Code, gather these facts. Everything else is writing; these are the parts the AI cannot know.</p>
+<ul>
+<li>Provider and client names, and the contact person at the client.</li>
+<li>The problem in the client&rsquo;s own words, ideally quoted from the discovery call or email.</li>
+<li>The goal and how success would be measured, labelled as the client&rsquo;s target, not your guarantee.</li>
+<li>Scope: what you will do, and what you will not.</li>
+<li>Timeline and start date.</li>
+<li>Prices for each option. If you have not decided, stop and decide. A proposal with invented prices is a liability.</li>
+</ul>
+
+<h2>Step 2: Use a proven structure</h2>
+<ol>
+<li><strong>Executive summary.</strong> Problem, proposed solution, outcome and price range, in two short paragraphs plus a three-bullet &ldquo;at a glance&rdquo; box. Many readers stop here.</li>
+<li><strong>Understanding of needs.</strong> A table of what you heard and what it means. State that you will validate it in the first phase.</li>
+<li><strong>Approach.</strong> Three to five phases with weeks, three activities each and one milestone. A simple Gantt-style timeline helps the reader see the plan.</li>
+<li><strong>Deliverables.</strong> Numbered, each checkable: what it is, its form, how acceptance works.</li>
+<li><strong>Assumptions.</strong> Five to eight specific, testable statements: access to people and data, approval turnaround, what is excluded, travel.</li>
+<li><strong>Pricing.</strong> Three options, Good, Better and Best, as fixed fees. Options are cumulative and the rows show exactly what each includes. Mark one as recommended and say why.</li>
+<li><strong>Terms and signature.</strong> Payment schedule, validity date, and a signature block.</li>
+</ol>
+<p>Three options work because they change the client&rsquo;s question from &ldquo;should we hire you?&rdquo; to &ldquo;which level do we want?&rdquo;. Keep the price ascending and be honest about what the lowest option leaves out.</p>
+
+<h2>Step 3: Generate the draft</h2>
+<p>With a plain prompt, ask for the structure above and tell Claude Code to produce a Word file using <code>python-docx</code> with real heading styles (not bold text pretending to be headings), so the client can edit it and the navigation pane works. Or use the free <code>proposal-sow</code> skill:</p>
+<pre><code>git clone https://github.com/boardroomskills/boardroom-skills.git
+cp -r boardroom-skills/skills/proposal-sow ~/.claude/skills/
+pip install -r ~/.claude/skills/proposal-sow/requirements.txt</code></pre>
+<p>Then prompt:</p>
+<pre><code>Use the proposal-sow skill. Client brief is in brief.md. Ask me for
+any missing prices, dates or client facts instead of inventing them.
+Leave legal terms as bracketed placeholders. Build the .docx and PDF
+and list every assumption I need to confirm.</code></pre>
+<p>The skill reads a JSON spec (an example is in <code>skills/proposal-sow/examples/proposal.json</code>) and builds the document with <code>python scripts/build_proposal.py spec.json out_dir</code>. The PDF is rendered from the Word file by LibreOffice, so you need <code>soffice</code> on your path for that part; <code>--no-pdf</code> skips it.</p>
+
+<h2>Step 4: Keep the legal terms out of the AI&rsquo;s hands</h2>
+<p>Liability caps, intellectual property, confidentiality, termination and governing law are legal clauses. Ask the agent to insert bracketed placeholders such as <code>[Limitation of liability - to be inserted]</code> and nothing more, then paste in wording from your lawyer or your standard terms. Drafting these by AI and sending them unreviewed is the single riskiest shortcut in this whole process. This document is a commercial proposal, not a contract.</p>
+
+<h2>Step 5: Cross-check before it leaves</h2>
+<p>Most embarrassing proposals have internal contradictions. Check these yourself:</p>
+<ul>
+<li>Option prices in the pricing table match the executive summary and the payment schedule.</li>
+<li>Total weeks match the timeline, and phase names are spelled the same everywhere.</li>
+<li>Each deliverable reference (D1, D2&hellip;) appears in the pricing table against the right option.</li>
+<li>No placeholders remain except the intentional bracketed terms. A quick <code>pdftotext proposal.pdf - | grep -n "TBD\|TODO\|\["</code> finds them.</li>
+<li>Client outcomes are phrased as the client&rsquo;s targets, not promises from you.</li>
+<li>Names and company details are spelled exactly as the client writes them.</li>
+</ul>
+<p>Also look at the PDF pages for a heading stranded at the bottom of a page, a table split awkwardly, or a signature block that runs over two pages.</p>
+
+<h2>Step 6: Adapt it to your voice</h2>
+<p>AI drafts tend towards smooth, generic language. Replace phrases such as &ldquo;holistic&rdquo; and &ldquo;best-in-class&rdquo; with specifics: which systems, how many interviews, which report the client will receive on which date. Short sentences. Numbers instead of adjectives. And read the executive summary aloud; if you would be embarrassed to say it to the client, rewrite it.</p>
+
+<h2>What the draft will not do for you</h2>
+<ul>
+<li>Decide your price. The tool uses the numbers you give it.</li>
+<li>Know the client. Discovery work is yours.</li>
+<li>Replace your lawyer on terms.</li>
+<li>Match your firm&rsquo;s brand. The default is a single typeface with navy and teal; changing colours is a theme file, deeper branding means editing the template or finishing in Word.</li>
+</ul>
+<p>For proposals that include a numeric plan, see <a href="excel-financial-model-with-ai.html">the Excel model guide</a>; if the client sends you their contract back, <a href="ai-contract-review-summary-safely.html">read the safe contract-review guide</a> before you sign.</p>
+
+<aside class="prod"><h2>About the tool in this guide</h2><p>Boardroom Skills is a set of Agent Skills for Claude Code, Codex and Cursor that I make and sell. The <code>proposal-sow</code> skill used here is in the free tier (MIT licence), so you can follow this guide without paying anything. PRO adds eight more skills (board deck, financial model, contract review and others) for $9.99 a month, $79 a year, or a $49 founding lifetime price for the first 100 buyers, until 9 December 2026. Output is a first draft: read it before it leaves your hands.</p><div class="cta"><a class="btn sm" href="https://github.com/boardroomskills/boardroom-skills">Get the free skills</a> <a class="btn sm ghost" href="../index.html#pricing">See pricing</a></div></aside>
+<nav class="related" aria-label="More guides"><h2>More guides</h2><ul><li><a href="make-pitch-deck-with-claude-code.html">Pitch deck with Claude Code</a></li><li><a href="excel-financial-model-with-ai.html">Excel financial model with AI</a></li><li><a href="claude-code-skills-for-powerpoint.html">Claude skills for PowerPoint</a></li><li><a href="monthly-kpi-report-pdf-from-csv.html">Monthly KPI report from a CSV</a></li><li><a href="board-deck-qbr-template-ai.html">Board deck and QBR template</a></li><li><a href="what-are-claude-agent-skills-and-how-to-install.html">Agent Skills explained and installed</a></li><li><a href="ai-contract-review-summary-safely.html">AI contract review, safely</a></li></ul></nav>
+    <p class="disc">Disclosure: I make and sell Boardroom Skills. Nothing here is legal, financial or investment advice. Company names and numbers in screenshots are fictional.</p>
+  </main>
+  <footer><p>Boardroom Skills. All company names, people and numbers in the examples are fictional. Free skills: MIT. PRO: commercial licence. <a href="../index.html">Home</a> &middot; <a href="index.html">Guides</a> &middot; <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p></footer>
+</div>
+</body>
+</html>

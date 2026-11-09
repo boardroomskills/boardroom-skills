@@ -1,0 +1,5 @@
+{
+  "classic":  {"primary": "1F2A44", "accent": "0E7C86", "text": "222831", "muted": "6B7280", "line": "D9DEE5", "band": "F4F6F8", "header_text": "FFFFFF", "style": "bar"},
+  "minimal":  {"primary": "111111", "accent": "111111", "text": "1A1A1A", "muted": "777777", "line": "DDDDDD", "band": "FFFFFF", "header_text": "111111", "style": "rule"},
+  "bold":     {"primary": "B4232A", "accent": "B4232A", "text": "262626", "muted": "6E6E6E", "line": "E6D9D9", "band": "FBF3F3", "header_text": "FFFFFF", "style": "bar"}
+}

@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude Code Skills for PowerPoint: What Works and What Doesn’t</title>
+<meta name="description" content="An honest look at using Claude Code skills to make PowerPoint decks: what the python-pptx approach does well, where it falls short, and how to choose.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://boardroomskills.github.io/boardroom-skills/guides/claude-code-skills-for-powerpoint.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boardroom Skills">
+<meta property="og:title" content="Claude Code Skills for PowerPoint: What Works and What Doesn’t">
+<meta property="og:description" content="An honest look at using Claude Code skills to make PowerPoint decks: what the python-pptx approach does well, where it falls short, and how to choose.">
+<meta property="og:url" content="https://boardroomskills.github.io/boardroom-skills/guides/claude-code-skills-for-powerpoint.html">
+<meta property="og:image" content="https://boardroomskills.github.io/boardroom-skills/img/investor-pitch-deck.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.art{max-width:760px;margin:0 auto}
+.crumb{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.crumb a{color:var(--muted)}
+.art h1{max-width:none;font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 12px}
+.art .lede{max-width:none}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.art h2{font-size:clamp(1.3rem,3.2vw,1.6rem);margin:36px 0 8px}
+.art h3{font-size:1.08rem;margin:22px 0 4px}
+.art p,.art li{max-width:68ch}
+.art ol,.art ul{padding-left:22px}.art li{margin:6px 0}
+.tldr{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;margin:16px 0}
+.tldr p{margin:0}
+figure{margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:12px 0 20px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:36px 0 12px;box-shadow:var(--shadow)}
+.prod h2{margin:0 0 6px;font-size:1.25rem}
+.prod p{margin:6px 0}
+.prod .cta{margin-top:12px}
+.btn.sm{padding:8px 14px;min-height:40px;font-size:.92rem}
+.related{margin:28px 0}
+.related ul{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related li{margin:0}.related a{display:block;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem}
+.related a:hover{border-color:var(--ink)}
+.disc{color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px;margin-top:20px}
+.art pre,.art td,.art th,.art p,.art li{overflow-wrap:anywhere}
+.art pre{overflow-wrap:normal}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Claude Code skills for PowerPoint: what works, what doesn’t", "description": "An honest look at using Claude Code skills to make PowerPoint decks: what the python-pptx approach does well, where it falls short, and how to choose.", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://boardroomskills.github.io/boardroom-skills/guides/claude-code-skills-for-powerpoint.html", "author": {"@type": "Organization", "name": "Boardroom Skills"}, "publisher": {"@type": "Organization", "name": "Boardroom Skills"}, "image": "https://boardroomskills.github.io/boardroom-skills/guides/img/qbr-exec.png"}</script>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../index.html">Boardroom<b>Skills</b></a>
+    <nav><a href="../index.html#gallery">Gallery</a><a href="../index.html#install">Install</a><a href="../index.html#pricing" class="keep">Pricing</a><a href="index.html" class="keep">Guides</a><a href="../index.html#faq">FAQ</a></nav>
+  </header>
+  <main class="art">
+    <p class="crumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a></p>
+    <h1>Claude Code skills for PowerPoint: what works, what doesn’t</h1>
+    <p class="lede">Skills can turn Claude Code into a decent deck builder, but only for some kinds of decks. Here is where the approach is strong, where it is weak, and how to pick between a general pptx skill and a purpose-built one.</p>
+    <p class="meta">By Boardroom Skills &middot; Updated 2026-11-09 &middot; About 4 min read</p>
+<div class="tldr"><p><strong>Short version:</strong> skills work well for structured decks with data (board updates, pitch decks, reports) where layout can follow rules. They work poorly for design-led decks, heavy imagery, animation and strict corporate templates. Judge any PowerPoint skill by three questions: are the charts native, does it check its own output, and does it refuse to invent numbers?</p></div>
+
+<h2>What a &ldquo;PowerPoint skill&rdquo; is</h2>
+<p>A skill is a folder with a <code>SKILL.md</code> file (instructions for the agent) and usually scripts. A PowerPoint skill tells Claude Code how to create or edit a <code>.pptx</code>, typically by running Python with <code>python-pptx</code> or a JavaScript library, and what to check afterwards. If you are new to the format, <a href="what-are-claude-agent-skills-and-how-to-install.html">this guide explains how skills load and install</a>.</p>
+<p>There are broadly two kinds:</p>
+<ul>
+<li><strong>General-purpose pptx skills</strong> teach the agent to read, edit and create any deck. Anthropic publishes document skills in its public skills repository, and the community has many variants. They are flexible and ask you to supply the structure.</li>
+<li><strong>Purpose-built skills</strong> produce one kind of deck (a seed pitch, a quarterly board review) with a fixed layout, computed numbers and a QA step. They are less flexible and usually faster to a good result for that one job.</li>
+</ul>
+
+<h2>What works well</h2>
+<h3>Structured, data-driven decks</h3>
+<p>Decks where every slide has a clear job and some numbers behind it suit code. A script can lay out a KPI table, a revenue-versus-plan chart and a risk list consistently across nine slides, and it does not get tired and misalign slide 7.</p>
+<h3>Native, editable charts</h3>
+<p><code>python-pptx</code> can create real PowerPoint chart objects (column, bar, line, pie, doughnut and others) backed by an embedded data sheet. That matters when your CFO says &ldquo;change the Q3 bar&rdquo; and you can do it in two clicks. A skill that renders charts as pictures through matplotlib is faster to write but gives you something nobody can edit. Ask which one it does.</p>
+<h3>Consistency and repeatability</h3>
+<p>The same input produces the same file. For monthly or quarterly decks, you change the data file and rebuild. That is where a script beats a chat prompt that may reorganise your deck differently every time.</p>
+<h3>Self-checks</h3>
+<p>A script can re-open the saved file and test things humans miss late at night: text running off a box, an empty placeholder, a slide with no title, a chart with the wrong number of points.</p>
+
+<figure><div class="row"><img src="img/qbr-exec.png" alt="Executive summary slide with a red, amber, green status per area" width="800" height="450" loading="lazy"><img src="img/qbr-scorecard.png" alt="KPI scorecard slide with plan variance and status labels" width="800" height="450" loading="lazy"></div><figcaption>Two slides from the fictional board deck example. Status is shown with words as well as colour.</figcaption></figure>
+
+<h2>What does not work well</h2>
+<h3>Design-led decks</h3>
+<p>Code-generated slides are tidy and a bit plain. If you need custom illustration, a distinctive grid, full-bleed photography or a brand book followed to the letter, a designer or a template-driven tool will beat a script.</p>
+<h3>Strict corporate templates</h3>
+<p>Editing an existing <code>.pptx</code> that uses your company&rsquo;s slide master is a different (and harder) task than creating a fresh deck. Skills that claim both are worth testing with your actual template before you rely on them. Layouts, placeholders and theme fonts in the master are easy for a script to break.</p>
+<h3>Animations, transitions, video, SmartArt</h3>
+<p>These are weakly supported or unsupported in <code>python-pptx</code>. If your presentation depends on them, plan to add them by hand.</p>
+<h3>Editing an existing chart&rsquo;s data in place</h3>
+<p>Creating a chart from data is well supported. Changing the data of a chart that already exists in someone else&rsquo;s deck is more awkward, and third-party descriptions of the library&rsquo;s limits are inconsistent, so test it on your file before building a workflow around it.</p>
+<h3>Judging how it looks</h3>
+<p>The model writing the code cannot see the slide. A good skill compensates by rendering to images and having the agent look at them, which needs LibreOffice or similar installed. Without that step, overlap and cramped text slip through. And a LibreOffice render is not identical to PowerPoint, especially with fonts.</p>
+
+<h2>A checklist for judging any PowerPoint skill</h2>
+<ol>
+<li><strong>Open the example output in PowerPoint.</strong> Click a chart. Is there a data sheet? Click a text box. Is it real text?</li>
+<li><strong>Read the SKILL.md.</strong> Does it tell the agent to ask for missing facts, or does it encourage invention?</li>
+<li><strong>Check for a QA step.</strong> Overflow, placeholders, slide count and chart count are the minimum.</li>
+<li><strong>Look at what runs.</strong> Skills run code on your machine. Read the scripts, or at least check they do not make network calls you did not expect.</li>
+<li><strong>Test with a real brief,</strong> not the demo. Thin or messy inputs show how the skill behaves under stress.</li>
+<li><strong>Check the licence.</strong> Can you use the output commercially, and can you modify the skill?</li>
+</ol>
+
+<h2>Which to choose</h2>
+<table>
+<tr><th>You need</th><th>Better fit</th></tr>
+<tr><td>A one-off deck with a free-form story</td><td>A general pptx skill or a plain prompt, then heavy manual editing</td></tr>
+<tr><td>A recurring board or QBR deck from changing numbers</td><td>A purpose-built skill, so the structure and checks stay fixed</td></tr>
+<tr><td>A seed or Series A deck</td><td>A purpose-built pitch skill, see <a href="make-pitch-deck-with-claude-code.html">the pitch deck guide</a></td></tr>
+<tr><td>Brand-perfect slides in your template</td><td>Your designer, or test a skill on your actual template first</td></tr>
+<tr><td>Decks with animation or video</td><td>PowerPoint itself</td></tr>
+</table>
+
+<h2>Where the Boardroom Skills decks fit</h2>
+<p>Boardroom Skills has two deck skills: <code>investor-pitch-deck</code> (13 slides, free) and <code>board-qbr-deck</code> (9 slides, PRO). Both use the same layout kit, three colour themes, auto-fitting text that raises an error instead of overflowing, native charts and a QA script. They are deliberately narrow. If you want a different structure you will either edit the JSON spec and scripts or use a general skill. And a code-built deck remains a first draft: read it, check the numbers against your source, and finish the design in PowerPoint. For the board version, see <a href="board-deck-qbr-template-ai.html">the QBR template guide</a>.</p>
+
+<aside class="prod"><h2>About the tool in this guide</h2><p>Boardroom Skills is a set of Agent Skills for Claude Code, Codex and Cursor that I make and sell. The <code>investor-pitch-deck</code> skill used here is in the free tier (MIT licence), so you can follow this guide without paying anything. PRO adds eight more skills (board deck, financial model, contract review and others) for $9.99 a month, $79 a year, or a $49 founding lifetime price for the first 100 buyers, until 9 December 2026. Output is a first draft: read it before it leaves your hands.</p><div class="cta"><a class="btn sm" href="https://github.com/boardroomskills/boardroom-skills">Get the free skills</a> <a class="btn sm ghost" href="../index.html#pricing">See pricing</a></div></aside>
+<nav class="related" aria-label="More guides"><h2>More guides</h2><ul><li><a href="make-pitch-deck-with-claude-code.html">Pitch deck with Claude Code</a></li><li><a href="excel-financial-model-with-ai.html">Excel financial model with AI</a></li><li><a href="monthly-kpi-report-pdf-from-csv.html">Monthly KPI report from a CSV</a></li><li><a href="consulting-proposal-sow-with-claude-code.html">Consulting proposal and SOW</a></li><li><a href="board-deck-qbr-template-ai.html">Board deck and QBR template</a></li><li><a href="what-are-claude-agent-skills-and-how-to-install.html">Agent Skills explained and installed</a></li><li><a href="ai-contract-review-summary-safely.html">AI contract review, safely</a></li></ul></nav>
+    <p class="disc">Disclosure: I make and sell Boardroom Skills. Nothing here is legal, financial or investment advice. Company names and numbers in screenshots are fictional.</p>
+  </main>
+  <footer><p>Boardroom Skills. All company names, people and numbers in the examples are fictional. Free skills: MIT. PRO: commercial licence. <a href="../index.html">Home</a> &middot; <a href="index.html">Guides</a> &middot; <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p></footer>
+</div>
+</body>
+</html>

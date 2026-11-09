@@ -1,0 +1,44 @@
+{
+  "theme": "minimal",
+  "currency": "GBP",
+  "default_tax_rate": 20,
+  "tax_label": "VAT",
+  "invoice": {
+    "number": "INV-2026-0107",
+    "issue_date": "2026-11-02",
+    "due_days": 30,
+    "po_number": "PO-5520",
+    "notes": "Thank you for your business. Late payments may incur interest as agreed in the contract."
+  },
+  "seller": {
+    "name": "Harbour Lane Design Ltd",
+    "address": ["27 Example Road", "Bristol BS1 0AA, UK"],
+    "tax_id": "VAT GB000000000",
+    "email": "billing@harbourlane.example",
+    "phone": "+44 117 000 0000",
+    "logo_text": "HL"
+  },
+  "buyer": {
+    "name": "Marlow & Reed Ltd",
+    "contact": "Accounts Payable",
+    "address": ["8 Sample Street", "Manchester M1 0AA, UK"],
+    "tax_id": "VAT GB000000001"
+  },
+  "items": [
+    {"description": "Brand strategy workshop (2 days)", "details": "On-site facilitation and workbook", "quantity": 2, "unit": "day", "unit_price": 1250.0, "tax_rate": 20},
+    {"description": "Visual identity system", "details": "Logo, palette, typography, guidelines PDF", "quantity": 1, "unit": "project", "unit_price": 5800.0, "discount_percent": 10, "tax_rate": 20},
+    {"description": "Website copywriting", "details": "12 pages, two revision rounds", "quantity": 12, "unit": "page", "unit_price": 160.0, "tax_rate": 20}
+  ],
+  "discount": {"label": "Loyalty discount", "percent": 5},
+  "shipping": {"label": "Courier", "amount": 35.0, "tax_rate": 20},
+  "payment": {
+    "method": "Bank transfer",
+    "bank": "Example Bank plc",
+    "account_name": "Harbour Lane Design Ltd",
+    "sort_code": "00-00-00",
+    "account_number": "00000000",
+    "reference": "INV-2026-0107",
+    "terms": "Net 30"
+  },
+  "amount_paid": 0
+}

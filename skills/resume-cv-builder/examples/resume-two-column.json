@@ -1,0 +1,41 @@
+{
+  "layout": "two-column", "theme": "teal", "max_pages": 2,
+  "basics": {"name": "Sam Whitlock", "headline": "Product Designer",
+    "email": "sam.whitlock@example.com", "phone": "+1 415 555 0142", "location": "Austin, TX",
+    "links": ["samwhitlock.example", "linkedin.com/in/sam-whitlock-example"]},
+  "summary": "Product designer with 8 years across B2B SaaS and fintech. I take messy workflows from research to shipped, measured design, and I work closely with engineers from the first sketch.",
+  "experience": [
+    {"role": "Lead Product Designer", "company": "Larkspur Payments (fictional)", "location": "Remote", "start": "Jan 2023", "end": "Present",
+     "bullets": [
+       "Led redesign of the merchant onboarding flow across 4 squads; completion rate rose from 58% to 74% within two quarters.",
+       "Built a design system of 60 components in Figma with engineering, cutting average UI build time per feature by about 30%.",
+       "Ran 25 moderated usability sessions and turned findings into a prioritised roadmap adopted by the product leadership team.",
+       "Managed 2 designers, setting quarterly goals and weekly critique routines."]},
+    {"role": "Senior Product Designer", "company": "Tidemark Software (fictional)", "location": "Austin, TX", "start": "Apr 2019", "end": "Dec 2022",
+     "bullets": [
+       "Designed the reporting module for an analytics product used by 3,200 accounts; support tickets about reports fell by 35%.",
+       "Introduced a research repository and monthly customer interviews, informing 6 roadmap changes.",
+       "Partnered with 2 engineering teams to ship accessibility fixes bringing the app to WCAG 2.1 AA on core flows."]},
+    {"role": "Product Designer", "company": "Cobalt Mobility (fictional)", "location": "Denver, CO", "start": "Aug 2016", "end": "Mar 2019",
+     "bullets": [
+       "Shipped the rider app booking redesign, increasing completed bookings by 12% in the first month.",
+       "Created prototypes in Figma and Principle for 9 experiments, 4 of which moved to production."]},
+    {"role": "UX Designer", "company": "Pinegate Studio (fictional)", "location": "Austin, TX", "start": "Jun 2014", "end": "Jul 2016",
+     "bullets": [
+       "Delivered websites and mobile prototypes for 15 small-business clients from discovery to handoff.",
+       "Facilitated 10 stakeholder workshops to agree scope and priorities."]}
+  ],
+  "projects": [
+    {"name": "Open accessibility checklist", "description": "Wrote a one-page contrast and keyboard checklist for designers, shared with a community of about 800 members."}
+  ],
+  "skills": [
+    {"group": "Design", "items": ["Interaction design", "Design systems", "Prototyping", "Usability testing", "Information architecture"]},
+    {"group": "Tools", "items": ["Figma", "Principle", "Miro", "Maze", "Jira"]},
+    {"group": "Also", "items": ["HTML and CSS", "SQL basics", "Facilitation"]}
+  ],
+  "education": [
+    {"degree": "BA Graphic Design", "school": "State College of Exampleton (fictional)", "year": "2014", "details": ""}
+  ],
+  "certifications": ["NN/g UX Certification (2021)"],
+  "languages": ["English (native)", "Spanish (B1)"]
+}

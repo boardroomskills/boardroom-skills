@@ -1,0 +1,33 @@
+{
+  "layout": "one-column", "theme": "navy", "max_pages": 1,
+  "basics": {"name": "Jordan Ellery", "headline": "Senior Data Analyst | Retail and Subscription Analytics",
+    "email": "jordan.ellery@example.com", "phone": "+44 7700 900123", "location": "Manchester, UK",
+    "links": ["linkedin.com/in/jordan-ellery-example", "jordanellery.example"]},
+  "summary": "Data analyst with 7 years in retail and subscription businesses, building reporting that finance and marketing teams use weekly. Strongest in SQL, experimentation and dashboard design. Looking for a senior analytics role where I can own metrics end to end.",
+  "experience": [
+    {"role": "Senior Data Analyst", "company": "Harbourline Retail (fictional)", "location": "Manchester, UK", "start": "Mar 2022", "end": "Present",
+     "bullets": [
+       "Rebuilt the weekly trading dashboard in Looker, cutting report preparation from 6 hours to 45 minutes for a 12-person merchandising team.",
+       "Designed and analysed 18 A/B tests on checkout and pricing pages; two winning variants lifted conversion by 3.1% and added about 410,000 GBP annual revenue.",
+       "Created a churn-risk model in Python used by the CRM team; targeted offers reduced 90-day churn by 2.4 points.",
+       "Mentored 3 junior analysts and introduced SQL code review, reducing rework on delivered reports."]},
+    {"role": "Data Analyst", "company": "Brightwell Media (fictional)", "location": "Leeds, UK", "start": "Sep 2019", "end": "Feb 2022",
+     "bullets": [
+       "Automated 14 recurring subscription reports with Python and scheduled SQL, saving roughly 20 analyst hours per month.",
+       "Standardised customer lifetime value definitions across 3 teams, resolving a 9% discrepancy between finance and marketing figures.",
+       "Presented monthly insight reviews to the leadership team, leading to a retention campaign that grew renewals by 5%."]},
+    {"role": "Junior Analyst", "company": "Corvin Logistics (fictional)", "location": "Sheffield, UK", "start": "Jul 2017", "end": "Aug 2019",
+     "bullets": [
+       "Maintained delivery-performance reports for 40 depots and flagged 6 recurring route delays that operations then fixed.",
+       "Cleaned and merged 5 data sources in Excel and SQL, improving report accuracy checks from monthly to daily."]}
+  ],
+  "skills": [
+    {"group": "Analytics", "items": ["SQL (BigQuery, PostgreSQL)", "A/B testing", "Cohort and retention analysis", "Forecasting"]},
+    {"group": "Tools", "items": ["Python (pandas, scikit-learn)", "Looker", "Tableau", "Excel", "dbt", "Git"]}
+  ],
+  "education": [
+    {"degree": "BSc Mathematics and Statistics", "school": "University of Exampleshire (fictional)", "year": "2017", "details": "First-class honours"}
+  ],
+  "certifications": ["Google Analytics Certification (2023)", "dbt Fundamentals (2022)"],
+  "languages": ["English (native)", "French (B2)"]
+}

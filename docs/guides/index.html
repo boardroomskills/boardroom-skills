@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides: AI-built decks, models and reports | Boardroom Skills</title>
+<meta name="description" content="Step-by-step guides for making pitch decks, Excel models, KPI reports, proposals, board decks and contract summaries with Claude Code, Codex and Cursor.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://boardroomskills.github.io/boardroom-skills/guides/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Boardroom Skills">
+<meta property="og:title" content="Guides: AI-built decks, models and reports | Boardroom Skills">
+<meta property="og:description" content="Step-by-step guides for making pitch decks, Excel models, KPI reports, proposals, board decks and contract summaries with Claude Code, Codex and Cursor.">
+<meta property="og:url" content="https://boardroomskills.github.io/boardroom-skills/guides/">
+<meta property="og:image" content="https://boardroomskills.github.io/boardroom-skills/img/investor-pitch-deck.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.art{max-width:760px;margin:0 auto}
+.crumb{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.crumb a{color:var(--muted)}
+.art h1{max-width:none;font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 12px}
+.art .lede{max-width:none}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.art h2{font-size:clamp(1.3rem,3.2vw,1.6rem);margin:36px 0 8px}
+.art h3{font-size:1.08rem;margin:22px 0 4px}
+.art p,.art li{max-width:68ch}
+.art ol,.art ul{padding-left:22px}.art li{margin:6px 0}
+.tldr{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;margin:16px 0}
+.tldr p{margin:0}
+figure{margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:12px 0 20px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:36px 0 12px;box-shadow:var(--shadow)}
+.prod h2{margin:0 0 6px;font-size:1.25rem}
+.prod p{margin:6px 0}
+.prod .cta{margin-top:12px}
+.btn.sm{padding:8px 14px;min-height:40px;font-size:.92rem}
+.related{margin:28px 0}
+.related ul{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related li{margin:0}.related a{display:block;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem}
+.related a:hover{border-color:var(--ink)}
+.disc{color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px;margin-top:20px}
+.art pre,.art td,.art th,.art p,.art li{overflow-wrap:anywhere}
+.art pre{overflow-wrap:normal}
+
+.gl{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));margin:20px 0}.gc{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none;box-shadow:var(--shadow)}.gc:hover{border-color:var(--ink)}.gc h3{margin:0 0 6px;font-size:1.05rem}.gc p{margin:0;color:var(--muted);font-size:.92rem}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../index.html">Boardroom<b>Skills</b></a>
+    <nav><a href="../index.html#gallery">Gallery</a><a href="../index.html#install">Install</a><a href="../index.html#pricing" class="keep">Pricing</a><a href="index.html" class="keep">Guides</a><a href="../index.html#faq">FAQ</a></nav>
+  </header>
+  <main class="art" style="max-width:1080px">
+    <p class="crumb"><a href="../index.html">Home</a> / Guides</p>
+    <h1 style="max-width:none">Guides</h1>
+    <p class="lede">Practical, step-by-step guides for getting business deliverables out of a coding agent. Each one works with the free skills or with a plain prompt, and each says plainly where the limits are.</p>
+    <div class="gl"><a class="gc" href="make-pitch-deck-with-claude-code.html"><h3>Pitch deck with Claude Code</h3><p>Step-by-step: build a 13-slide investor pitch deck as a real .pptx with native, editable charts using Claude Code, from a one-page brief to a checked file.</p></a><a class="gc" href="excel-financial-model-with-ai.html"><h3>Excel financial model with AI</h3><p>How to get a 3-statement Excel model with live formulas, a balance check and scenarios from an AI agent, and how to test it so you can trust the numbers.</p></a><a class="gc" href="claude-code-skills-for-powerpoint.html"><h3>Claude skills for PowerPoint</h3><p>An honest look at using Claude Code skills to make PowerPoint decks: what the python-pptx approach does well, where it falls short, and how to choose.</p></a><a class="gc" href="monthly-kpi-report-pdf-from-csv.html"><h3>Monthly KPI report from a CSV</h3><p>Turn a CSV of monthly metrics into an answer-first PDF KPI report with tiles, trend charts and commentary, using Claude Code and a free skill.</p></a><a class="gc" href="consulting-proposal-sow-with-claude-code.html"><h3>Consulting proposal and SOW</h3><p>A step-by-step method for writing a client-ready consulting proposal and statement of work with Claude Code: structure, pricing options, assumptions and legal placeholders.</p></a><a class="gc" href="board-deck-qbr-template-ai.html"><h3>Board deck and QBR template</h3><p>A 9-slide board deck / QBR structure you can generate with AI, with RAG status, plan variance, runway and decisions needed, plus how to check the maths.</p></a><a class="gc" href="what-are-claude-agent-skills-and-how-to-install.html"><h3>Agent Skills explained and installed</h3><p>What an Agent Skill is, what is inside a SKILL.md folder, and how to install skills in Claude Code, Codex and Cursor, with troubleshooting for when one does not load.</p></a><a class="gc" href="ai-contract-review-summary-safely.html"><h3>AI contract review, safely</h3><p>How to use AI for a first-pass contract summary without being misled: what to redact, how to prompt, how to verify against the text, and when to call a lawyer.</p></a></div>
+    <p class="disc">I make and sell Boardroom Skills (6 free skills, 8 more in PRO). See the <a href="../index.html#pricing">pricing</a> or the <a href="https://github.com/boardroomskills/boardroom-skills">free repo</a>.</p>
+  </main>
+  <footer><p>Boardroom Skills. All company names, people and numbers in the examples are fictional. Free skills: MIT. PRO: commercial licence. <a href="../index.html">Home</a> &middot; <a href="index.html">Guides</a> &middot; <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p></footer>
+</div>
+</body>
+</html>

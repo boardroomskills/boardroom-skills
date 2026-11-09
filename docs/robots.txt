@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boardroomskills.github.io/boardroom-skills/sitemap.xml

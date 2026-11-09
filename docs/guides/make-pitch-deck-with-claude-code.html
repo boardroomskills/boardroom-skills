@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Make a Pitch Deck with Claude Code (Editable PPTX Charts)</title>
+<meta name="description" content="Step-by-step: build a 13-slide investor pitch deck as a real .pptx with native, editable charts using Claude Code, from a one-page brief to a checked file.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://boardroomskills.github.io/boardroom-skills/guides/make-pitch-deck-with-claude-code.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boardroom Skills">
+<meta property="og:title" content="How to Make a Pitch Deck with Claude Code (Editable PPTX Charts)">
+<meta property="og:description" content="Step-by-step: build a 13-slide investor pitch deck as a real .pptx with native, editable charts using Claude Code, from a one-page brief to a checked file.">
+<meta property="og:url" content="https://boardroomskills.github.io/boardroom-skills/guides/make-pitch-deck-with-claude-code.html">
+<meta property="og:image" content="https://boardroomskills.github.io/boardroom-skills/img/investor-pitch-deck.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.art{max-width:760px;margin:0 auto}
+.crumb{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.crumb a{color:var(--muted)}
+.art h1{max-width:none;font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 12px}
+.art .lede{max-width:none}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.art h2{font-size:clamp(1.3rem,3.2vw,1.6rem);margin:36px 0 8px}
+.art h3{font-size:1.08rem;margin:22px 0 4px}
+.art p,.art li{max-width:68ch}
+.art ol,.art ul{padding-left:22px}.art li{margin:6px 0}
+.tldr{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;margin:16px 0}
+.tldr p{margin:0}
+figure{margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:12px 0 20px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:36px 0 12px;box-shadow:var(--shadow)}
+.prod h2{margin:0 0 6px;font-size:1.25rem}
+.prod p{margin:6px 0}
+.prod .cta{margin-top:12px}
+.btn.sm{padding:8px 14px;min-height:40px;font-size:.92rem}
+.related{margin:28px 0}
+.related ul{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related li{margin:0}.related a{display:block;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem}
+.related a:hover{border-color:var(--ink)}
+.disc{color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px;margin-top:20px}
+.art pre,.art td,.art th,.art p,.art li{overflow-wrap:anywhere}
+.art pre{overflow-wrap:normal}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to make a pitch deck with Claude Code", "description": "Step-by-step: build a 13-slide investor pitch deck as a real .pptx with native, editable charts using Claude Code, from a one-page brief to a checked file.", "datePublished": "2026-11-09", "dateModified": "2026-11-09", "mainEntityOfPage": "https://boardroomskills.github.io/boardroom-skills/guides/make-pitch-deck-with-claude-code.html", "author": {"@type": "Organization", "name": "Boardroom Skills"}, "publisher": {"@type": "Organization", "name": "Boardroom Skills"}, "image": "https://boardroomskills.github.io/boardroom-skills/guides/img/pitch-contact-sheet.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to make a pitch deck with Claude Code", "description": "Step-by-step: build a 13-slide investor pitch deck as a real .pptx with native, editable charts using Claude Code, from a one-page brief to a checked file.", "step": [{"@type": "HowToStep", "position": 1, "name": "Write a one-page brief", "text": "Collect the company, round, traction series, market inputs, pricing, competitors, team and use of funds in one file."}, {"@type": "HowToStep", "position": 2, "name": "Install a pptx-capable skill", "text": "Copy a skill folder into ~/.claude/skills or install the plugin so Claude Code can build .pptx files."}, {"@type": "HowToStep", "position": 3, "name": "Ask for the deck and answer the questions", "text": "Prompt Claude Code, answer its questions about missing facts, and let placeholders stand where you do not know."}, {"@type": "HowToStep", "position": 4, "name": "Build and run the checks", "text": "Run the build script, then a QA script that re-opens the file and checks overflow, charts and placeholders."}, {"@type": "HowToStep", "position": 5, "name": "Render, read and fix", "text": "Render slides to images, read every one, and fix numbers that disagree between slides."}]}</script>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../index.html">Boardroom<b>Skills</b></a>
+    <nav><a href="../index.html#gallery">Gallery</a><a href="../index.html#install">Install</a><a href="../index.html#pricing" class="keep">Pricing</a><a href="index.html" class="keep">Guides</a><a href="../index.html#faq">FAQ</a></nav>
+  </header>
+  <main class="art">
+    <p class="crumb"><a href="../index.html">Home</a> / <a href="index.html">Guides</a></p>
+    <h1>How to make a pitch deck with Claude Code</h1>
+    <p class="lede">A practical walkthrough for getting a real, editable PowerPoint pitch deck out of Claude Code, with charts you can click into and change. Works with the free skill or with a plain prompt.</p>
+    <p class="meta">By Boardroom Skills &middot; Updated 2026-11-09 &middot; About 6 min read</p>
+<div class="tldr"><p><strong>Short version:</strong> Claude Code can write a real <code>.pptx</code> by running a Python script (python-pptx) that draws slides and native chart objects. The decks that turn out well start from a one-page brief of facts, use a fixed slide order, and get checked by a script and by your own eyes. Expect a strong first draft, not a finished raise.</p></div>
+
+<figure><img src="img/pitch-contact-sheet.png" alt="Contact sheet of a 13-slide pitch deck generated from a fictional brief" width="1400" height="1323" loading="lazy"><figcaption>The 13-slide deck produced from the fictional Harborlane brief. Every number is invented for the demo.</figcaption></figure>
+
+<h2>What you are actually asking Claude Code to do</h2>
+<p>Claude Code does not have a slide editor. When you ask for a deck it writes and runs code, usually with the <code>python-pptx</code> library, and saves a file. That is good news for two reasons. The output is a normal PowerPoint file you can open in PowerPoint, Keynote or Google Slides. And charts can be real chart objects with a data sheet behind them, so you can right-click a bar chart and choose Edit Data, instead of getting a picture of a chart.</p>
+<p>It is also the source of the main risks: the model cannot see the slide while it writes code, so text can overflow a box, and nothing forces the numbers on slide 5 to match the numbers on slide 12. Most of this guide is about closing those two gaps.</p>
+
+<h2>Step 1: Write a one-page brief before you prompt</h2>
+<p>The quality of the deck depends more on your inputs than on the prompt. Put these facts in a single text or markdown file:</p>
+<ul>
+<li>Company name, one-line pitch, round size, audience (seed funds, angels, a strategic).</li>
+<li>The problem, in the customer&rsquo;s words, with one hard fact you can source.</li>
+<li>Traction as a series: monthly revenue or users for the last 12 months, customer count, retention.</li>
+<li>Market inputs for a bottom-up size: how many target accounts exist, how many you can realistically serve, and your average price.</li>
+<li>Pricing tiers, unit economics you can defend, 3 to 5 named competitors.</li>
+<li>Team: names and one relevant line each.</li>
+<li>A five-year revenue and cost forecast, and the use of funds as percentages that add to 100.</li>
+</ul>
+<p>If you do not know something, write <code>[TBD]</code> rather than guessing. A visible placeholder is easy to find later; a plausible invented number is not. The free skill ships a sample brief (a fictional freight-audit company called Harborlane) in <code>skills/investor-pitch-deck/examples/input.md</code> that shows the level of detail that works.</p>
+
+<h2>Step 2: Give it a fixed narrative</h2>
+<p>Do not ask for &ldquo;a pitch deck&rdquo; and hope. Specify the order. A widely used seed or Series A order, and the one the free skill follows, is:</p>
+<ol>
+<li>Title</li><li>Problem</li><li>Solution</li><li>Why now</li><li>Market (TAM, SAM, SOM with the calculation shown)</li><li>Product</li><li>Traction</li><li>Business model and unit economics</li><li>Competition</li><li>Go-to-market</li><li>Team</li><li>Financial summary</li><li>The ask and use of funds</li>
+</ol>
+<p>Ask for slide titles that state the point (&ldquo;Monthly revenue grew 11x in 12 months&rdquo;) rather than labels (&ldquo;Traction&rdquo;). Investors skim titles; if the titles alone tell the story, the deck works.</p>
+
+<h2>Step 3: Get a skill that can build pptx files</h2>
+<p>You can do this with a plain prompt, but a skill gives the agent tested code and a checklist instead of improvising each time. Options include Anthropic&rsquo;s own public skills repository (which has document skills) and the free <code>investor-pitch-deck</code> skill from Boardroom Skills. To install the free one as a Claude Code plugin:</p>
+<pre><code>/plugin marketplace add boardroomskills/boardroom-skills
+/plugin install boardroom-skills@boardroom</code></pre>
+<p>Or copy the folder by hand, which works for any agent that reads <code>SKILL.md</code>:</p>
+<pre><code>git clone https://github.com/boardroomskills/boardroom-skills.git
+cp -r boardroom-skills/skills/investor-pitch-deck ~/.claude/skills/
+pip install -r ~/.claude/skills/investor-pitch-deck/requirements.txt</code></pre>
+<p>Restart Claude Code so it re-scans its skills. For more on where skills live in each agent, see <a href="what-are-claude-agent-skills-and-how-to-install.html">What are Claude Agent Skills and how to install them</a>.</p>
+
+<h2>Step 4: Prompt, then answer its questions</h2>
+<p>Start with something like this:</p>
+<pre><code>Build a 13-slide seed pitch deck from brief.md as a .pptx with native
+editable charts. Follow the standard narrative order. Do not invent any
+number that is not in the brief; use [TBD] placeholders and list them
+at the end. Run the QA script and tell me what it found.</code></pre>
+<p>A well-written skill makes the agent ask for anything missing before it builds. Answer those questions, or leave the placeholders. Resist the urge to say &ldquo;just make something up for now&rdquo;; that is how invented traction ends up in front of an investor.</p>
+
+<h2>Step 5: Let the numbers be computed once</h2>
+<p>The most useful design choice in a deck script is to pass inputs, not results. If you give the script <em>accounts</em> and <em>average price</em>, it can compute the market size and reuse it on every slide, and it can refuse to build when TAM is smaller than SAM. The same goes for use of funds: give percentages and a total, and let the script derive the dollar amounts and check that the percentages sum to 100. Where you do this by hand, you will eventually have a slide that says $4.0M and another that says $4M with a different split.</p>
+<figure><div class="row"><img src="img/pitch-market.png" alt="Market slide with TAM, SAM and SOM and a bottom-up table" width="800" height="450" loading="lazy"><img src="img/pitch-traction.png" alt="Traction slide with a column chart and three KPIs" width="800" height="450" loading="lazy"></div><figcaption>Market and traction slides from the example deck. The charts are native PowerPoint chart objects, not images.</figcaption></figure>
+
+<h2>Step 6: Build, then run the checks</h2>
+<p>With the free skill, the build is two commands: write a JSON content file based on the example, then run the builder.</p>
+<pre><code>python scripts/build_deck.py --spec deck.json --out pitch.pptx --theme boardroom
+python scripts/qa_pptx.py pitch.pptx --min-slides 12 --max-slides 14 --min-charts 3</code></pre>
+<p>The builder measures text with real font metrics, shrinks it to a floor and then stops with an error rather than letting it overflow. The QA script re-opens the saved file and checks that shapes are inside the slide, text does not run into the footer, no placeholders remain, no fonts are tiny and the native chart count is what you expect.</p>
+<p>If you are not using a skill, you can still ask for the same checks in your prompt. Ask Claude Code to re-open the file with python-pptx after saving it, loop over every shape, and report any that extend past the slide edge, any text frame with more than a set number of lines, and any text containing <code>TBD</code> or <code>lorem</code>.</p>
+
+<h2>Step 7: Render it and look</h2>
+<p>Scripts cannot judge taste. Convert to images and look at each slide. With LibreOffice and poppler installed:</p>
+<pre><code>soffice --headless --convert-to pdf pitch.pptx
+pdftoppm -png -r 60 pitch.pdf slide</code></pre>
+<p>Check for crowded text, labels colliding in charts, and a chart whose latest value disagrees with the number in the title. Note that LibreOffice substitutes fonts, so spacing in real PowerPoint can differ slightly. Open the file in PowerPoint once before you send it.</p>
+
+<h2>What to edit by hand</h2>
+<ul>
+<li><strong>Brand.</strong> Generated decks use a few fixed themes and system fonts. Add your logo and adjust colours yourself, or edit the theme file.</li>
+<li><strong>Screenshots of your product.</strong> The agent has no access to them. Paste them in.</li>
+<li><strong>The story.</strong> The agent organises what you gave it. It cannot know which of your three customers is the reference investors will call. You decide the emphasis.</li>
+<li><strong>Claims.</strong> Every statistic, competitor claim and market number needs a source you can defend in the room.</li>
+</ul>
+
+<h2>Honest limits</h2>
+<p>Code-generated decks look clean and consistent but plain. They are not a substitute for a designer if design is part of your pitch. Animations, custom master slides and heavy imagery are outside what a script like this does well. And no tool makes a weak business case strong; it only makes a weak case look tidy. For a wider comparison of approaches, read <a href="claude-code-skills-for-powerpoint.html">Claude Code skills for PowerPoint: what works, what doesn&rsquo;t</a>. If you later need a board update rather than a raise, see <a href="board-deck-qbr-template-ai.html">the board deck and QBR template guide</a>.</p>
+
+<aside class="prod"><h2>About the tool in this guide</h2><p>Boardroom Skills is a set of Agent Skills for Claude Code, Codex and Cursor that I make and sell. The <code>investor-pitch-deck</code> skill used here is in the free tier (MIT licence), so you can follow this guide without paying anything. PRO adds eight more skills (board deck, financial model, contract review and others) for $9.99 a month, $79 a year, or a $49 founding lifetime price for the first 100 buyers, until 9 December 2026. Output is a first draft: read it before it leaves your hands.</p><div class="cta"><a class="btn sm" href="https://github.com/boardroomskills/boardroom-skills">Get the free skills</a> <a class="btn sm ghost" href="../index.html#pricing">See pricing</a></div></aside>
+<nav class="related" aria-label="More guides"><h2>More guides</h2><ul><li><a href="excel-financial-model-with-ai.html">Excel financial model with AI</a></li><li><a href="claude-code-skills-for-powerpoint.html">Claude skills for PowerPoint</a></li><li><a href="monthly-kpi-report-pdf-from-csv.html">Monthly KPI report from a CSV</a></li><li><a href="consulting-proposal-sow-with-claude-code.html">Consulting proposal and SOW</a></li><li><a href="board-deck-qbr-template-ai.html">Board deck and QBR template</a></li><li><a href="what-are-claude-agent-skills-and-how-to-install.html">Agent Skills explained and installed</a></li><li><a href="ai-contract-review-summary-safely.html">AI contract review, safely</a></li></ul></nav>
+    <p class="disc">Disclosure: I make and sell Boardroom Skills. Nothing here is legal, financial or investment advice. Company names and numbers in screenshots are fictional.</p>
+  </main>
+  <footer><p>Boardroom Skills. All company names, people and numbers in the examples are fictional. Free skills: MIT. PRO: commercial licence. <a href="../index.html">Home</a> &middot; <a href="index.html">Guides</a> &middot; <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p></footer>
+</div>
+</body>
+</html>
