@@ -1,0 +1,22 @@
+{
+  "name": "boardroom",
+  "description": "Free Boardroom Skills: investor pitch deck, monthly KPI report, case-study one-pager and proposal/SOW generators for coding agents.",
+  "owner": {
+    "name": "Boardroom Skills"
+  },
+  "plugins": [
+    {
+      "name": "boardroom-skills",
+      "source": "./",
+      "description": "Free Boardroom Skills: investor pitch deck, monthly KPI report, case-study one-pager and proposal/SOW generators for coding agents.",
+      "category": "productivity",
+      "tags": [
+        "business-deliverables",
+        "pptx",
+        "docx",
+        "pdf",
+        "agent-skills"
+      ]
+    }
+  ]
+}

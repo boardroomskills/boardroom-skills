@@ -1,0 +1,85 @@
+{
+ "meta": {
+  "provider": "Northfield Advisory Partners",
+  "client": "Larkspur Logistics Ltd",
+  "title": "Quote-to-Cash Acceleration Programme",
+  "subtitle": "Proposal and Statement of Work",
+  "date": "2 December 2026",
+  "valid_until": "31 January 2027",
+  "prepared_by": "Jordan Ellis, Engagement Partner",
+  "prepared_for": "Priya Raman, Chief Operating Officer",
+  "reference": "NAP-2026-114 / v1.0"
+ },
+ "executive_summary": [
+  "Larkspur Logistics takes an average of 11 days to turn an accepted quote into cash. Operations staff re-key shipment charges between the transport management system (TMS) and the accounting package, which slows invoicing, creates disputes and leaves finance without a trustworthy view of margin.",
+  "Northfield Advisory Partners proposes a 16-week programme to diagnose the current process, design a target state, build the TMS-to-accounting integration, pilot it at one depot and, in the recommended option, roll it out to two further depots. The goal is to bring quote-to-cash below 5 days before the 2027 peak season."
+ ],
+ "executive_bullets": [
+  "Outcome: quote-to-cash under 5 days, measured on pilot-depot data (client target).",
+  "One source of truth for shipment charges, with an audit trail for every change.",
+  "Three options priced from USD 38,000 to USD 126,000; we recommend Better."
+ ],
+ "understanding": {
+  "paras": ["From our discovery call on 18 November we understand the following. These points are the client's account of the situation and will be tested in the diagnosis phase."],
+  "needs": [
+   ["Speed", "Quotes accepted today are invoiced on average 6 days later; cash arrives after a further 5."],
+   ["Accuracy", "Charges are re-keyed by hand, so rate and surcharge errors surface as customer disputes."],
+   ["Control", "Finance cannot reconcile shipment margin without exporting and merging spreadsheets."],
+   ["Timing", "Changes must be live at the pilot depot before the 2027 peak season begins."]
+  ]
+ },
+ "approach": {
+  "intro": "We work in four phases. Each phase ends with a milestone review at which the client accepts the deliverables before the next phase starts.",
+  "phases": [
+   {"name": "Diagnose", "start": 1, "end": 4, "description": "Map the current quote-to-cash flow, measure cycle time per step and quantify the cost of rework.", "activities": ["Stakeholder interviews (operations, finance, sales)", "Process mapping and data sampling", "Root-cause analysis and baseline metrics"], "milestone": "Diagnosis readout"},
+   {"name": "Design", "start": 5, "end": 8, "description": "Define the target process, data model and controls, and agree the integration specification.", "activities": ["Target-state process and role design", "Integration and data specification", "Control and audit requirements"], "milestone": "Design sign-off"},
+   {"name": "Build and pilot", "start": 7, "end": 13, "description": "Build the integration, test with real shipments and run a live pilot at one depot.", "activities": ["Integration build and test", "Pilot depot go-live", "Daily defect triage and tuning"], "milestone": "Pilot go-live"},
+   {"name": "Roll out", "start": 12, "end": 16, "description": "Extend to two further depots, train teams and hand over to client owners. Best option adds 90 days of hypercare.", "activities": ["Depot rollout waves", "Training and playbooks", "Handover and benefits review"], "milestone": "Handover"}
+  ]
+ },
+ "deliverables": [
+  ["D1", "Current-state process map and baseline metrics", "Annotated end-to-end map; cycle time and rework baseline", "Diagnose", "Good"],
+  ["D2", "Target-state design pack", "Process, roles, controls, data model", "Design", "Good"],
+  ["D3", "Integration specification", "Field mapping, error handling, reconciliation rules", "Design", "Good"],
+  ["D4", "Working TMS-to-accounting integration", "Tested build deployed to pilot depot", "Build and pilot", "Better"],
+  ["D5", "Pilot results report", "Cycle time vs baseline, defects, lessons", "Build and pilot", "Better"],
+  ["D6", "Depot rollout and training", "Two further depots live; trained staff; playbooks", "Roll out", "Best"],
+  ["D7", "90-day hypercare", "Named support, weekly metrics review, fixes", "Roll out", "Best"]
+ ],
+ "assumptions": [
+  "Larkspur provides access to TMS and accounting administrators within five working days of kick-off.",
+  "Both systems expose supported APIs or file imports; if not, a change request will be raised.",
+  "The client nominates one accountable business owner with authority to approve deliverables within five working days.",
+  "Pilot depot staff are available for up to four hours per week during design and pilot.",
+  "Third-party licence or vendor fees for either system are excluded.",
+  "Work is performed remotely with up to three on-site visits per depot; travel is billed at cost."
+ ],
+ "pricing": {
+  "currency": "USD",
+  "options": [
+   {"name": "Good", "tagline": "Diagnose and design", "price": 38000, "weeks": "8 weeks"},
+   {"name": "Better", "tagline": "Plus build and pilot", "price": 84000, "weeks": "13 weeks", "recommended": true},
+   {"name": "Best", "tagline": "Plus rollout and hypercare", "price": 126000, "weeks": "16 weeks + 90 days"}
+  ],
+  "rows": [
+   ["Process diagnosis and baseline (D1)", true, true, true],
+   ["Target-state design pack (D2)", true, true, true],
+   ["Integration specification (D3)", true, true, true],
+   ["Integration build and test (D4)", false, true, true],
+   ["Live pilot at one depot and results report (D5)", false, true, true],
+   ["Rollout to two further depots and training (D6)", false, false, true],
+   ["90-day hypercare (D7)", false, false, true]
+  ],
+  "payment_schedule": "30% on signature, 40% on design sign-off, 30% on final milestone acceptance. Fees are fixed for the scope above and exclude taxes and expenses.",
+  "notes": "Prices are in USD and valid until 31 January 2027."
+ },
+ "terms": [
+  ["Payment terms", "[Payment terms, e.g. net 30 days from invoice - to be confirmed by Northfield legal]"],
+  ["Change control", "[Change request process and rate card - to be inserted]"],
+  ["Intellectual property", "[Ownership of deliverables and pre-existing materials - to be inserted]"],
+  ["Confidentiality", "[Confidentiality clause or reference to existing NDA - to be inserted]"],
+  ["Limitation of liability", "[Liability cap and exclusions - to be inserted]"],
+  ["Governing law", "[Jurisdiction and governing law - to be inserted]"]
+ ],
+ "signature": {"provider_signatory": "Jordan Ellis", "provider_title": "Engagement Partner", "client_signatory": "", "client_title": ""}
+}

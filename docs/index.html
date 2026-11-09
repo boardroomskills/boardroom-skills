@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boardroom Skills: board decks, models and reports from your coding agent</title>
+<meta name="description" content="Agent Skills for Claude Code, Codex and Cursor that produce client-ready decks, Excel models, PDFs and proposals in one prompt. 4 free skills, 8 more in PRO.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Boardroom Skills">
+<meta property="og:description" content="Boardroom-ready deliverables from your coding agent, in one prompt.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#">Boardroom<b>Skills</b></a>
+    <nav><a href="#gallery">Gallery</a><a href="#install">Install</a><a href="#pricing" class="keep">Pricing</a><a href="#faq">FAQ</a></nav>
+  </header>
+
+  <main>
+  <div class="hero">
+    <h1>Boardroom-ready deliverables from your coding agent.</h1>
+    <p class="lede">Agent Skills for Claude Code, Codex and Cursor. One prompt turns a rough brief into a pitch deck with editable charts, a 3-statement Excel model, a contract review or a client proposal, built by tested scripts and checked by the agent before it hands you the file.</p>
+    <div class="cta">
+      <a class="btn" href="https://github.com/boardroomskills/boardroom-skills">Get the 4 free skills</a>
+      <a class="btn ghost" href="#pricing">See PRO (all 12)</a>
+    </div>
+    <p class="note">I make this and sell the PRO tier. Free skills are MIT licensed.</p>
+  </div>
+
+  <section id="gallery">
+    <h2>Look at the output first</h2>
+    <p class="sub">Each image is a screenshot of a real file generated by the skill from a fictional brief. Free skills ship the full example files; PRO previews are screenshots only.</p>
+    <div class="grid">
+      <article class="card">
+        <div class="shot"><img src="img/investor-pitch-deck.png" alt="Preview of the Investor pitch deck output" width="800" height="600" loading="lazy"></div>
+        <h3>Investor pitch deck <span class="tag free">FREE</span></h3>
+        <p>13 slides, native editable charts, bottom-up TAM/SAM/SOM, use-of-funds maths.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/monthly-kpi-report.png" alt="Preview of the Monthly KPI report output" width="800" height="600" loading="lazy"></div>
+        <h3>Monthly KPI report <span class="tag free">FREE</span></h3>
+        <p>Answer-first PDF from a CSV: KPI tiles, trends, commentary, risks.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/case-study-one-pager.png" alt="Preview of the Case study one-pager output" width="800" height="600" loading="lazy"></div>
+        <h3>Case study one-pager <span class="tag free">FREE</span></h3>
+        <p>PDF plus matching slide. Challenge, solution, three results, quote.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/proposal-sow.png" alt="Preview of the Proposal and SOW output" width="800" height="600" loading="lazy"></div>
+        <h3>Proposal and SOW <span class="tag free">FREE</span></h3>
+        <p>Editable .docx and PDF with phases, timeline and three pricing options.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/board-qbr-deck.png" alt="Preview of the Board / QBR deck output" width="800" height="600" loading="lazy"></div>
+        <h3>Board / QBR deck <span class="tag pro">PRO</span></h3>
+        <p>9 slides with RAG status, plan variance, runway and decisions needed.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/financial-model.png" alt="Preview of the 3-statement model output" width="800" height="600" loading="lazy"></div>
+        <h3>3-statement model <span class="tag pro">PRO</span></h3>
+        <p>36-month Excel model, live formulas, balanced sheet, three scenarios.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/data-dashboard.png" alt="Preview of the Data dashboard output" width="800" height="600" loading="lazy"></div>
+        <h3>Data dashboard <span class="tag pro">PRO</span></h3>
+        <p>One offline HTML file from a CSV. Charts, filters, light and dark.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/market-research-brief.png" alt="Preview of the Market research brief output" width="800" height="600" loading="lazy"></div>
+        <h3>Market research brief <span class="tag pro">PRO</span></h3>
+        <p>Sizing with the maths shown, competitor table, 2x2, cited sources.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/contract-review-summary.png" alt="Preview of the Contract review output" width="800" height="600" loading="lazy"></div>
+        <h3>Contract review <span class="tag pro">PRO</span></h3>
+        <p>Plain-English clause risk table and questions. Not legal advice.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/real-estate-cma-pack.png" alt="Preview of the Real-estate CMA pack output" width="800" height="600" loading="lazy"></div>
+        <h3>Real-estate CMA pack <span class="tag pro">PRO</span></h3>
+        <p>Adjustment grid, price range, listing presentation and flyer.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/marketing-campaign-brief.png" alt="Preview of the Campaign brief output" width="800" height="600" loading="lazy"></div>
+        <h3>Campaign brief <span class="tag pro">PRO</span></h3>
+        <p>Brief PDF plus an Excel content calendar with dropdowns.</p>
+      </article>
+      <article class="card">
+        <div class="shot"><img src="img/lesson-plan-worksheet.png" alt="Preview of the Lesson plan pack output" width="800" height="600" loading="lazy"></div>
+        <h3>Lesson plan pack <span class="tag pro">PRO</span></h3>
+        <p>Lesson plan, worksheet and answer key, typography by grade band.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>How a skill works</h2>
+    <div class="steps">
+      <div class="step"><h3>Ask</h3><p>The agent asks you for missing facts. It never invents numbers about your business; gaps become clearly marked placeholders.</p></div>
+      <div class="step"><h3>Build</h3><p>A deterministic Python script writes the native file: pptx, docx, xlsx with live formulas, PDF or HTML. No network, no API keys.</p></div>
+      <div class="step"><h3>Check</h3><p>The agent re-opens its own output and runs a QA checklist: overflow, empty placeholders, formula errors, numbers that disagree. Then it fixes them.</p></div>
+    </div>
+  </section>
+
+  <section id="install">
+    <h2>Install in 30 seconds</h2>
+    <div class="cols">
+      <div>
+        <h3 class="s">Claude Code plugin marketplace</h3>
+<pre><code>/plugin marketplace add boardroomskills/boardroom-skills
+/plugin install boardroom-skills@boardroom</code></pre>
+      </div>
+      <div>
+        <h3 class="s">Manual copy (any agent that reads SKILL.md)</h3>
+<pre><code>git clone https://github.com/boardroomskills/boardroom-skills.git
+cp -r boardroom-skills/skills/* ~/.claude/skills/</code></pre>
+        <p class="note">Codex: <code>~/.codex/skills/</code> or <code>~/.agents/skills/</code>. Cursor: <code>.cursor/skills/</code>. Check your version's docs if a skill does not appear.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p class="sub">Free tier forever. PRO unlocks the other 8 skills plus new skills monthly, through a private GitHub repo that Polar grants you access to automatically on purchase.</p>
+    <div class="prices">
+      <div class="plan"><h3>Free</h3><div class="price">$0</div>
+        <ul><li>Pitch deck, KPI report, case study, proposal/SOW</li><li>MIT licence</li><li>Full example files</li></ul>
+        <a class="btn ghost" href="https://github.com/boardroomskills/boardroom-skills">View on GitHub</a></div>
+      <div class="plan"><h3>PRO monthly</h3><div class="price">$9.99<small> / month</small></div>
+        <ul><li>All 12 skills</li><li>New skills monthly</li><li>Cancel any time; access ends with the subscription</li></ul>
+        <a class="btn" href="https://buy.polar.sh/polar_cl_DH7gguHUD2rrUAR03HE8JdiTuI0apICjSRy6G2qSgDE">Subscribe monthly</a></div>
+      <div class="plan"><h3>PRO yearly</h3><div class="price">$79<small> / year</small></div>
+        <ul><li>Everything in monthly</li><li>About 34% less than paying monthly</li></ul>
+        <a class="btn" href="https://buy.polar.sh/polar_cl_KwzsVgrR1wzqR9L8rAb5ckWAMZ5Ax2U0naTXU1873IK">Subscribe yearly</a></div>
+      <div class="plan hl"><span class="ribbon">Founding lifetime</span><h3>PRO lifetime</h3><div class="price">$49<small> once</small></div>
+        <ul><li>All 12 skills and future updates</li><li>Only for the first 30 days, limited to the first 100 buyers</li></ul>
+        <a class="btn" href="https://buy.polar.sh/polar_cl_8Eluoz141SBwedlUioV2Tea75cSlmBXNbJeQq092AAF">Get founding lifetime</a></div>
+    </div>
+    <p class="note">Checkout, tax and receipts are handled by Polar. After payment you get a GitHub invitation to the private repo; accept it and follow the README. Single-user licence, no redistribution.</p>
+  </section>
+
+  <section>
+    <h2>Honest limitations</h2>
+    <ul class="l">
+      <li>You get a strong first draft, not a finished document. Review every output and check numbers against your source data.</li>
+      <li>Quality depends on your inputs and on the agent model you run. Thin briefs give thin decks.</li>
+      <li>Not professional advice: the contract review is not legal advice, the model is not a valuation, the CMA is not an appraisal.</li>
+      <li>A few fixed themes per skill and system fonts only. Deep brand matching means editing the templates.</li>
+      <li>English-first. Developed and tested on Linux with Python 3.9+; macOS and Windows are less tested.</li>
+      <li>Some QA and preview steps need LibreOffice and poppler installed.</li>
+    </ul>
+  </section>
+
+  <section id="faq">
+    <h2>FAQ</h2>
+    <details><summary>Is this just prompts?</summary><p>No. Each skill includes tested Python (python-pptx, openpyxl, reportlab, python-docx, matplotlib) that builds the file, plus instructions that tell the agent how to drive it and how to check the result.</p></details>
+    <details><summary>Which agents does it work with?</summary><p>Built and tested mainly with Claude Code. The format is the open Agent Skills layout (a folder with SKILL.md), which Codex and Cursor can also load.</p></details>
+    <details><summary>Can I edit the files it makes?</summary><p>Yes. Decks, Word files and spreadsheets are native editable files with real charts and live formulas, not screenshots.</p></details>
+    <details><summary>Can I use the output for clients?</summary><p>Yes. Files you generate are yours.</p></details>
+    <details><summary>Where does my data go?</summary><p>The scripts run locally and make no network calls. Your agent sends your conversation to its model provider as usual.</p></details>
+    <details><summary>How does PRO access work?</summary><p>Polar takes the payment and automatically invites your GitHub account to the private repository. Cancelling a subscription removes access; a lifetime purchase keeps it.</p></details>
+    <details><summary>Can I redistribute the skills?</summary><p>The free skills, yes, under MIT. PRO is single-user with no redistribution.</p></details>
+  </section>
+  </main>
+
+  <footer>
+    <p>Boardroom Skills. All company names, people and numbers in the examples are fictional. Free skills: MIT. PRO: commercial licence. <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p>
+  </footer>
+</div>
+</body>
+</html>

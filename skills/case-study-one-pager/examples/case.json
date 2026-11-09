@@ -1,0 +1,36 @@
+{
+  "vendor": "Harborlane",
+  "customer": "Brightwell Foods",
+  "theme": "boardroom",
+  "headline": "Brightwell Foods cut freight overbilling by {m1_abs} and now audits every invoice before it is paid",
+  "facts": [
+    {"label": "Industry", "value": "Refrigerated food distribution"},
+    {"label": "Size", "value": "900 employees, Midwest US"},
+    {"label": "Time to value", "value": "9-day integration"}
+  ],
+  "challenge": "Brightwell receives about 14,000 carrier invoices a month. One analyst sampled roughly 5% in spreadsheets, so most overcharges, from duplicate bills to wrong accessorials, were found after payment or not at all. By then many were outside the carriers' 180-day claims window, and the freight line kept growing faster than volume.",
+  "solution": [
+    "Connected the TMS and carrier EDI feeds in 9 days with no consulting engagement.",
+    "Re-rates every invoice line against the signed contract before payment.",
+    "Flags errors for approvers and files disputes automatically, with evidence attached.",
+    "Gives the CFO a live savings and recovery dashboard."
+  ],
+  "results": [
+    {"before": 1.9, "after": 1.1, "mode": "pct_change", "label": "reduction in annual freight overbilling ($1.9M to $1.1M)"},
+    {"before": 5, "after": 100, "mode": "multiple", "label": "audit coverage, from a 5% sample to 100% of invoices"},
+    {"before": 12, "after": 3, "mode": "pct_change", "label": "reduction in invoice approval time, from 12 days to 3 days"}
+  ],
+  "quote": {
+    "text": "We used to find mistakes after the money was gone. Now they are fixed before the invoice reaches my desk.",
+    "name": "Marcus Lindqvist",
+    "role": "Controller, Brightwell Foods (fictional)"
+  },
+  "cta": {
+    "headline": "See what your freight invoices are hiding",
+    "body": "Send us 90 days of carrier invoices and we will show you the overcharges, free, in 30 days.",
+    "button": "Book a free audit",
+    "url": "harborlane.example/audit"
+  },
+  "footer": "Fictional demo case study. Results are specific to this customer and may vary.",
+  "notes": "Metrics are computed from before/after values so the headline, callouts and body cannot drift apart."
+}

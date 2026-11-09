@@ -1,0 +1,143 @@
+{
+  "company": "Harborlane",
+  "tagline": "Stop paying freight bills you never agreed to.",
+  "subtitle": "Seed round  |  November 2026  |  founders@harborlane.example  |  Fictional demo company",
+  "theme": "boardroom",
+  "problem": {
+    "title": "Mid-market shippers overpay on freight and only find out after the bill is paid",
+    "points": [
+      {"head": "Invoices arrive faster than anyone can check them", "body": "Thousands of carrier invoices a month, each with contract rates, fuel and accessorial lines."},
+      {"head": "Audit happens in spreadsheets, after payment", "body": "One analyst re-rates a sample by hand; the rest is paid on trust."},
+      {"head": "Claims windows close before errors surface", "body": "Most carriers allow about 180 days to dispute, then the overcharge is permanent."}
+    ],
+    "stat": {"value": "~8%", "label": "of freight invoices contain a billing error, according to industry audit benchmarks"}
+  },
+  "solution": {
+    "title": "Harborlane re-rates every invoice line against your contract before you pay",
+    "statement": "One connection to your TMS and carrier EDI feeds turns freight spend from a leak into a controlled, auditable process.",
+    "pillars": [
+      {"head": "Audit 100% of lines", "body": "Contracts are parsed once; every invoice line is re-rated automatically, not sampled."},
+      {"head": "Pay the right amount", "body": "Errors are flagged pre-payment, so approvers pay the corrected amount instead of chasing refunds."},
+      {"head": "Recover the rest", "body": "Disputes are drafted and filed within the claims window, with evidence attached."}
+    ]
+  },
+  "why_now": {
+    "title": "Three shifts have made continuous freight audit possible and urgent",
+    "items": [
+      {"marker": "2023", "head": "Carriers moved to dynamic accessorial pricing", "body": "Surcharges change monthly, so static rate checks and annual audits miss more every year."},
+      {"marker": "EDI 210 + APIs", "head": "Invoice data is finally machine-readable", "body": "Most mid-market carriers now deliver structured invoices, removing the OCR and manual entry step."},
+      {"marker": "2024", "head": "Rate volatility put freight on the CFO's agenda", "body": "Finance leaders want controls and variance explanations, not a yearly recovery report."}
+    ]
+  },
+  "market": {
+    "title": "A {tam_title} bottom-up market, with a clear path to our first {som_title}",
+    "tam": {"label": "US shippers with $20M+ freight spend", "accounts": 38000, "acv": 24000},
+    "sam": {"label": "Shippers on a TMS we integrate with", "accounts": 11400, "acv": 24000},
+    "som": {"label": "5% of SAM within five years", "accounts": 570, "acv": 24000},
+    "assumptions": [
+      "Account counts are from public shipper-spend datasets and our CRM; ACV equals today's blended contract value.",
+      "SAM covers the TMS and ERP platforms we already integrate with; more are on the roadmap.",
+      "SOM assumes a 5% win rate on SAM; it ignores expansion revenue and international shippers."
+    ]
+  },
+  "product": {
+    "title": "Connect once, and every invoice is audited, corrected and disputed automatically",
+    "steps": [
+      {"head": "Connect", "body": "Link the TMS, ERP and carrier EDI feeds. Upload contracts; our parser extracts rate tables."},
+      {"head": "Audit", "body": "Every line is re-rated and scored. Duplicates, wrong accessorials and rate drift are flagged."},
+      {"head": "Recover", "body": "Approvers pay the corrected amount, and disputes go to the carrier with evidence attached."}
+    ],
+    "capabilities": [
+      {"head": "Contract-aware", "body": "Tiered, lane-based and zone-based rates are modelled, not approximated."},
+      {"head": "Pre-payment", "body": "Findings arrive before the AP run, so money is never paid out."},
+      {"head": "Audit trail", "body": "Every adjustment is explainable and exportable for finance review."},
+      {"head": "Live in two weeks", "body": "Self-serve onboarding with no consulting engagement."}
+    ]
+  },
+  "traction": {
+    "title": "MRR grew {growth} in {months} months to {mrr_last}, with 128% net revenue retention",
+    "chart_title": "Monthly recurring revenue ($K), December 2025 to November 2026",
+    "categories": ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov"],
+    "values": [8, 11, 15, 19, 24, 30, 37, 45, 54, 64, 76, 90],
+    "source": "Source: Harborlane billing system, month-end MRR. Illustrative numbers for a fictional company.",
+    "stats": [
+      {"value": "{arr}", "label": "annualised recurring revenue (MRR x 12)"},
+      {"value": "41", "label": "paying customers, 3 above $60K ACV"},
+      {"value": "128%", "label": "net revenue retention, trailing 12 months"}
+    ]
+  },
+  "business_model": {
+    "title": "Annual SaaS contracts priced on freight spend, with 7-month CAC payback",
+    "tiers": [
+      {"name": "Starter", "price": "$9K / yr", "for": "Up to $20M freight spend", "features": ["Parcel and LTL audit", "Monthly savings report", "Email support"]},
+      {"name": "Growth", "price": "$24K / yr", "for": "$20M to $80M freight spend", "featured": true, "features": ["All modes and carriers", "Automated disputes", "TMS/ERP integration", "CFO dashboard"]},
+      {"name": "Enterprise", "price": "from $60K / yr", "for": "Multi-entity shippers", "features": ["Custom contracts and rules", "SSO and audit exports", "Dedicated success manager"]}
+    ],
+    "unit_economics": [
+      {"value": "$14K", "label": "blended customer acquisition cost"},
+      {"value": "7 mo", "label": "CAC payback period"},
+      {"value": "78%", "label": "gross margin"},
+      {"value": "128%", "label": "net revenue retention"}
+    ]
+  },
+  "competition": {
+    "title": "Only Harborlane combines pre-payment audit, contract-level accuracy and fast self-serve setup",
+    "criteria": ["Contract-level re-rating", "Pre-payment audit", "Automated disputes", "Live in under 4 weeks", "Flat subscription pricing"],
+    "rows": [
+      {"name": "Harborlane", "scores": [2, 2, 2, 2, 2]},
+      {"name": "Legacy audit firms", "scores": [2, 0, 1, 0, 0]},
+      {"name": "TMS built-in audit", "scores": [1, 1, 0, 2, 2]},
+      {"name": "AP automation suites", "scores": [0, 2, 0, 1, 2]},
+      {"name": "In-house spreadsheets", "scores": [1, 0, 0, 2, 2]}
+    ],
+    "takeaway": "Alternatives audit after payment or approximate rates; we do both before the money leaves."
+  },
+  "gtm": {
+    "title": "Land with finance and logistics leads, expand through carriers and 3PL partners",
+    "phases": [
+      {"name": "Land", "when": "Now to month 9", "bullets": ["Outbound to controllers and logistics managers at $20M+ shippers", "Free 30-day invoice audit as the entry offer", "Founder-led sales, two AEs"]},
+      {"name": "Expand", "when": "Months 9 to 18", "bullets": ["Add carriers, entities and modes inside each account", "3PL and broker referral partnerships", "Customer-success led upsell to Growth and Enterprise"]},
+      {"name": "Scale", "when": "Months 18 to 36", "bullets": ["TMS and ERP marketplace listings", "Direct carrier API integrations", "Inbound engine from savings benchmark reports"]}
+    ],
+    "metrics": [
+      {"value": "45 days", "label": "average sales cycle"},
+      {"value": "$14K", "label": "blended CAC"},
+      {"value": "3.1x", "label": "pipeline coverage on next-quarter target"}
+    ]
+  },
+  "team": {
+    "title": "A team that has run freight finance, built payments infrastructure and sold to this buyer",
+    "people": [
+      {"name": "Dana Whitlock", "role": "CEO", "bio": "Former VP of finance operations at a national retailer; owned a $300M freight budget."},
+      {"name": "Ravi Menon", "role": "CTO", "bio": "Former staff engineer in payments; built high-volume invoice reconciliation systems."},
+      {"name": "Leila Haddad", "role": "COO", "bio": "Ran carrier operations at a third-party logistics provider for nine years."},
+      {"name": "Tom Brandt", "role": "Head of Sales", "bio": "Built mid-market sales teams at two logistics software companies."}
+    ],
+    "advisors": "Fictional advisors: a former CFO of a regional distributor and a transportation-procurement consultant."
+  },
+  "financials": {
+    "title": "Revenue reaches {rev_last} by 2031E, and EBITDA turns positive in {breakeven}",
+    "years": ["2027E", "2028E", "2029E", "2030E", "2031E"],
+    "revenue": [2.0, 5.2, 11.0, 20.5, 34.0],
+    "costs": [4.0, 6.8, 10.8, 18.4, 28.9],
+    "gross_margin": [79, 80, 81, 82, 83],
+    "note": "Forecast assumes 140% NRR on new cohorts and Growth-tier mix of 60%. Illustrative numbers for a fictional company."
+  },
+  "ask": {
+    "title": "We are raising {raise} to reach $5M ARR and be Series A ready in 24 months",
+    "round": "Seed round",
+    "amount_m": 4.0,
+    "use_of_funds": [
+      {"label": "Engineering and product", "pct": 40},
+      {"label": "Sales and marketing", "pct": 35},
+      {"label": "Customer success", "pct": 15},
+      {"label": "G&A", "pct": 10}
+    ],
+    "milestones": ["$5M ARR (from $1.08M today)", "120 paying customers", "Direct carrier API integrations live", "Series A readiness within 24 months"],
+    "contact": "Dana Whitlock, CEO  |  founders@harborlane.example"
+  },
+  "notes": {
+    "problem": "Open with the buyer's pain. Ask the room: who checks freight invoices before they are paid?",
+    "traction": "Walk the curve left to right; the last bar is highlighted. Mention that MRR figures are month-end billing data."
+  }
+}

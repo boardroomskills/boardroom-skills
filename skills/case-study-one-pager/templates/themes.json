@@ -1,0 +1,26 @@
+{
+  "boardroom": {
+    "label": "Boardroom Navy (navy + teal, default for investors and boards)",
+    "bg": "FFFFFF", "surface": "F2F4F7", "ink": "14213D", "muted": "5B6575", "line": "D9DEE5",
+    "primary": "14213D", "primary_ink": "FFFFFF", "accent": "0B8E9A", "accent_ink": "FFFFFF",
+    "accent2": "F2A541", "accent2_ink": "14213D",
+    "series": ["14213D", "0B8E9A", "F2A541", "8D99AE", "C8553D"],
+    "good": "2E9E6B", "warn": "E0A020", "bad": "C94040", "font": "Calibri"
+  },
+  "ember": {
+    "label": "Ember (warm charcoal + orange, for consumer and creative brands)",
+    "bg": "FBF8F5", "surface": "F1EBE4", "ink": "262626", "muted": "6B6259", "line": "DED5CB",
+    "primary": "2B2B2B", "primary_ink": "FFFFFF", "accent": "D8461F", "accent_ink": "FFFFFF",
+    "accent2": "F3A712", "accent2_ink": "262626",
+    "series": ["D8461F", "2B2B2B", "F3A712", "8C857E", "4C8577"],
+    "good": "3F8F5F", "warn": "E0A020", "bad": "C0392B", "font": "Calibri"
+  },
+  "forest": {
+    "label": "Forest (deep green + sage, for sustainability, health and real estate)",
+    "bg": "FFFFFF", "surface": "F1F5F0", "ink": "1B2D26", "muted": "5A6B63", "line": "D5DED8",
+    "primary": "1F4D3F", "primary_ink": "FFFFFF", "accent": "2F8F6B", "accent_ink": "FFFFFF",
+    "accent2": "D9A441", "accent2_ink": "1B2D26",
+    "series": ["1F4D3F", "2F8F6B", "D9A441", "9DB4A8", "B5533C"],
+    "good": "2E9E6B", "warn": "D9A441", "bad": "B5433C", "font": "Calibri"
+  }
+}
