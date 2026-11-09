@@ -111,7 +111,7 @@ Rules every skill follows: it asks for missing inputs instead of inventing facts
 | Access | public | private GitHub repo, access granted automatically on purchase |
 
 - [Monthly, $9.99](https://buy.polar.sh/polar_cl_DH7gguHUD2rrUAR03HE8JdiTuI0apICjSRy6G2qSgDE)
-- [Yearly, $79](https://buy.polar.sh/polar_cl_KwzsVgrR1wzqR9L8rAb5ckWAMZ5Ax2U0naTXU1873IK)
+- [Yearly, $79](https://buy.polar.sh/polar_cl_CxIM1JnTMBVaCbBZLDsr9Qy8RcJWxYu5woOGn0uGYEi)
 - [Founding lifetime, $49](https://buy.polar.sh/polar_cl_8Eluoz141SBwedlUioV2Tea75cSlmBXNbJeQq092AAF) (first 100 buyers, until 9 December 2026)
 
 Checkout and tax are handled by Polar. After you pay, Polar invites your GitHub account to the private `boardroom-skills-pro` repo; accept the invite, then run the PRO install commands in that repo's README. Cancelling a subscription removes repo access.

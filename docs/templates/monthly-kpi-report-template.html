@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Monthly KPI Report Template (Free PDF + CSV Data and Notes File)</title>
+<meta name="description" content="Download a free monthly KPI report template: a 4-page answer-first PDF with KPI tiles, trend charts and commentary, plus the CSV and notes file it was built from.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://boardroomskills.github.io/boardroom-skills/templates/monthly-kpi-report-template.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Boardroom Skills">
+<meta property="og:title" content="Monthly KPI Report Template (Free PDF + CSV Data and Notes File)">
+<meta property="og:description" content="Download a free monthly KPI report template: a 4-page answer-first PDF with KPI tiles, trend charts and commentary, plus the CSV and notes file it was built from.">
+<meta property="og:url" content="https://boardroomskills.github.io/boardroom-skills/templates/monthly-kpi-report-template.html">
+<meta property="og:image" content="https://boardroomskills.github.io/boardroom-skills/templates/img/monthly-kpi-report-template.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f1b33'/%3E%3Crect x='7' y='23' width='18' height='2.5' fill='%23f5a623'/%3E%3Ctext x='16' y='20' font-family='Arial' font-weight='700' font-size='17' fill='white' text-anchor='middle'%3EB%3C/text%3E%3C/svg%3E">
+<style>
+:root{--bg:#f7f8fa;--surface:#fff;--ink:#0f1b33;--muted:#53607a;--line:#e1e5ec;--accent:#0f1b33;--accent-ink:#fff;--amber:#e08e0b;--pro:#7a4b00;--pro-bg:#fff1d6;--free:#0b5d3b;--free-bg:#dff5e8;--code:#eef1f6;--shadow:0 1px 2px rgba(15,27,51,.06),0 8px 24px rgba(15,27,51,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}}
+:root[data-theme="dark"]{--bg:#0b1220;--surface:#131c2e;--ink:#eaf0fb;--muted:#9aa7c0;--line:#25324b;--accent:#f5a623;--accent-ink:#0b1220;--amber:#f5a623;--pro:#ffd58a;--pro-bg:#3a2a07;--free:#8be0b3;--free-bg:#0f3324;--code:#0f1829;--shadow:none}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0}
+.brand{font-weight:700;letter-spacing:-.01em;text-decoration:none}
+.brand b{color:var(--amber)}
+nav a{margin-left:16px;text-decoration:none;color:var(--muted);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2rem,6vw,3.4rem);line-height:1.08;letter-spacing:-.03em;margin:0 0 16px;max-width:18ch}
+.lede{font-size:clamp(1.05rem,2.4vw,1.25rem);color:var(--muted);max-width:60ch;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.btn{display:inline-block;padding:12px 20px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:600;text-decoration:none;border:2px solid var(--accent);min-height:44px}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.note{color:var(--muted);font-size:.9rem}
+section{padding:40px 0}
+h2{font-size:clamp(1.5rem,4vw,2rem);letter-spacing:-.02em;margin:0 0 8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:70ch}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow)}
+.card .shot{aspect-ratio:4/3;border-radius:8px;overflow:hidden;background:#eceff3}
+.card img{display:block;width:100%;height:100%;object-fit:cover}
+.card h3{font-size:1.02rem;margin:12px 4px 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{margin:0 4px 6px;color:var(--muted);font-size:.92rem}
+.tag{font-size:.68rem;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px}
+.tag.pro{background:var(--pro-bg);color:var(--pro)}
+.tag.free{background:var(--free-bg);color:var(--free)}
+.steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));counter-reset:s}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
+.step:before{counter-increment:s;content:counter(s);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:.85rem;margin-bottom:8px}
+.step h3{margin:0 0 4px;font-size:1.05rem}.step p{margin:0;color:var(--muted);font-size:.95rem}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font:13.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;margin:8px 0 16px;max-width:100%}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9em}
+.cols{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+h3.s{margin:0 0 4px;font-size:1.05rem}
+.prices{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hl{border:2px solid var(--amber)}
+.plan h3{margin:0;font-size:1rem;color:var(--muted);font-weight:600}
+.price{font-size:2.2rem;font-weight:800;letter-spacing:-.03em;margin:4px 0}
+.price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{padding-left:18px;margin:8px 0 18px;color:var(--muted);font-size:.93rem;flex:1}
+.plan .btn{text-align:center}
+.ribbon{font-size:.75rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.06em}
+ul.l{padding-left:20px}ul.l li{margin:6px 0}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p{margin:8px 0 0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;color:var(--muted);font-size:.9rem}
+@media (max-width:560px){nav a:not(.keep){display:none}.hero{padding-top:20px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.art{max-width:760px;margin:0 auto}
+.crumb{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.crumb a{color:var(--muted)}
+.art h1{max-width:none;font-size:clamp(1.8rem,5vw,2.6rem);margin:12px 0 12px}
+.art .lede{max-width:none}
+.meta{color:var(--muted);font-size:.88rem;margin:0 0 20px}
+.art h2{font-size:clamp(1.3rem,3.2vw,1.6rem);margin:36px 0 8px}
+.art h3{font-size:1.08rem;margin:22px 0 4px}
+.art p,.art li{max-width:68ch}
+.art ol,.art ul{padding-left:22px}.art li{margin:6px 0}
+.tldr{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:10px;padding:12px 16px;margin:16px 0}
+.tldr p{margin:0}
+figure{margin:20px 0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px}
+figure img{display:block;max-width:100%;height:auto;margin:0 auto;border-radius:6px;border:1px solid var(--line)}
+figcaption{color:var(--muted);font-size:.85rem;margin:8px 4px 0}
+.row{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+table{border-collapse:collapse;width:100%;font-size:.93rem;margin:12px 0 20px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--code)}
+.prod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:36px 0 12px;box-shadow:var(--shadow)}
+.prod h2{margin:0 0 6px;font-size:1.25rem}
+.prod p{margin:6px 0}
+.prod .cta{margin-top:12px}
+.btn.sm{padding:8px 14px;min-height:40px;font-size:.92rem}
+.related{margin:28px 0}
+.related ul{list-style:none;padding:0;display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.related li{margin:0}.related a{display:block;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.95rem}
+.related a:hover{border-color:var(--ink)}
+.disc{color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);padding-top:12px;margin-top:20px}
+.art pre,.art td,.art th,.art p,.art li{overflow-wrap:anywhere}
+.art pre{overflow-wrap:normal}
+
+
+.dl{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:12px;padding:14px 16px;margin:18px 0}
+.dl h2{margin:0 0 8px!important;font-size:1.1rem!important}
+.dl .cta{gap:10px}
+.dl .btn small{font-weight:500;opacity:.8}
+.free-note{color:var(--muted);font-size:.88rem;margin:8px 0 0}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:999px;background:var(--free-bg);color:var(--free);vertical-align:middle;margin-left:6px}
+.card a.cl{text-decoration:none;color:inherit;display:block}
+.card .shot img{object-position:top}
+.art details p{max-width:68ch}
+.wide{max-width:1080px}
+@media (max-width:560px){.dl .btn{width:100%;text-align:center}.prod .btn{width:100%;text-align:center}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Monthly KPI Report Template (Free PDF + CSV Data and Notes File)", "description": "Download a free monthly KPI report template: a 4-page answer-first PDF with KPI tiles, trend charts and commentary, plus the CSV and notes file it was built from.", "url": "https://boardroomskills.github.io/boardroom-skills/templates/monthly-kpi-report-template.html", "inLanguage": "en-GB", "dateModified": "2026-11-09", "isPartOf": {"@type": "WebSite", "name": "Boardroom Skills", "url": "https://boardroomskills.github.io/boardroom-skills/"}, "primaryImageOfPage": "https://boardroomskills.github.io/boardroom-skills/templates/img/monthly-kpi-report-template.png", "publisher": {"@type": "Organization", "name": "Boardroom Skills", "url": "https://boardroomskills.github.io/boardroom-skills/"}, "mainEntity": {"@type": "ItemList", "name": "Free downloads", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "DigitalDocument", "name": "PDF, 4 pages (the finished report)", "encodingFormat": "PDF", "url": "https://boardroomskills.github.io/boardroom-skills/templates/files/monthly-kpi-report-template.pdf", "isAccessibleForFree": true}}, {"@type": "ListItem", "position": 2, "item": {"@type": "DigitalDocument", "name": "CSV data (12 months of sample metrics)", "encodingFormat": "CSV", "url": "https://boardroomskills.github.io/boardroom-skills/templates/files/monthly-kpi-report-template-data.csv", "isAccessibleForFree": true}}, {"@type": "ListItem", "position": 3, "item": {"@type": "DigitalDocument", "name": "Notes file (text and targets)", "encodingFormat": "MD", "url": "https://boardroomskills.github.io/boardroom-skills/templates/files/monthly-kpi-report-template-notes.md", "isAccessibleForFree": true}}]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://boardroomskills.github.io/boardroom-skills/"}, {"@type": "ListItem", "position": 2, "name": "Free templates", "item": "https://boardroomskills.github.io/boardroom-skills/templates/"}, {"@type": "ListItem", "position": 3, "name": "Monthly KPI Report Template (Free PDF + CSV Data and Notes File)", "item": "https://boardroomskills.github.io/boardroom-skills/templates/monthly-kpi-report-template.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is this KPI report template free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. All three files are free to download and use."}}, {"@type": "Question", "name": "Can I edit the PDF?", "acceptedAnswer": {"@type": "Answer", "text": "The PDF is the finished example. You change the CSV and notes file and rebuild with the free skill. You can also copy its structure into Word, Slides or your own reporting tool."}}, {"@type": "Question", "name": "Which metrics should I put in?", "acceptedAnswer": {"@type": "Answer", "text": "Four to six that someone will act on. The sample uses revenue, gross margin, new customers, churn, CAC and cash. Replace them with your own."}}, {"@type": "Question", "name": "Does it use real data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything in the sample is fictional."}}, {"@type": "Question", "name": "What if my audience wants slides?", "acceptedAnswer": {"@type": "Answer", "text": "See the board deck and QBR guide, or the pitch deck template."}}]}</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="../index.html">Boardroom<b>Skills</b></a>
+    <nav><a href="../index.html#gallery">Gallery</a><a href="../index.html#install">Install</a><a href="../index.html#pricing" class="keep">Pricing</a><a href="../guides/index.html" class="keep">Guides</a><a href="../templates/index.html" class="keep">Templates</a><a href="../index.html#faq">FAQ</a></nav>
+  </header>
+  <main class="art">
+    <p class="crumb"><a href="../index.html">Home</a> / <a href="index.html">Free templates</a></p>
+    <h1>Monthly KPI report template: a free PDF and the CSV it was made from</h1>
+    <p class="lede">Most KPI templates give you an empty table. This one gives you a finished four-page report and the two small files that produced it, a CSV of monthly numbers and a notes file for the words. Change the numbers, rebuild, and the commentary stays in step with the data. All figures are fictional sample data.</p>
+    <p class="meta">By Boardroom Skills &middot; Updated 2026-11-09 &middot; Free, no sign-up <span class="badge">UK + US</span></p>
+    <div class="dl" id="download"><h2>Download the free template</h2><div class="cta"><a class="btn" href="files/monthly-kpi-report-template.pdf" download>PDF, 4 pages (the finished report) <small>&middot; PDF, 252 KB</small></a><a class="btn" href="files/monthly-kpi-report-template-data.csv" download>CSV data (12 months of sample metrics) <small>&middot; CSV, 1 KB</small></a><a class="btn" href="files/monthly-kpi-report-template-notes.md" download>Notes file (text and targets) <small>&middot; MD, 2 KB</small></a></div><p class="free-note">Free to use for your own business or job search. All names, numbers and details inside are fictional placeholders: replace them before you send anything.</p></div>
+<figure><img src="img/monthly-kpi-report-template.png" alt="Page 1 of the monthly KPI report template with headline and KPI tiles" width="662" height="936" loading="lazy"><figcaption>Page 1 of the PDF. The company and every number are fictional sample data.</figcaption></figure>
+<h2>What is in the template</h2><ul><li>Page 1: a headline that states the answer, three key reasons and KPI tiles against last month and target.</li><li>Page 2: trend charts for the main metrics, with the latest value labelled and a dashed target line.</li><li>Page 3: commentary by key point, risks, and decisions and next steps with owners and dates.</li><li>Page 4: an appendix table of the numbers.</li><li>A CSV of twelve months of sample data and a notes file in a simple text format.</li></ul>
+<h2>How to fill it in</h2>
+<h3>How a good monthly report is built</h3>
+<p>A management report should answer a question: are we on track, and what must someone decide? It should say so on the first page, back it up with a few charts, and list owners and dates for the next steps. This template follows that order. Because the numbers live in a CSV and the sentences refer to them by name, the text cannot say 2% when the chart says 4%.</p>
+<h3>Step 1: Look at the CSV</h3>
+<p>Open <code>monthly-kpi-report-template-data.csv</code> in Excel, Google Sheets or a text editor. It has one row per month and one column per metric: <code>month</code> as YYYY-MM, then revenue, gross margin, new customers, churn, CAC and cash. Percentages are plain numbers, so 62.4 means 62.4%. Replace the sample rows with yours. Include at least the reporting month and the previous one, and ideally twelve months so the charts have a trend.</p>
+<h3>Step 2: Look at the notes file</h3>
+<p>The notes file is plain text. The top lines name the company, report title, period, currency and who prepared it. The Metrics section lists each metric with its label, format, whether up or down is good and the target. The rest is the text of the report. Numbers in the text are written as tokens such as <code>{revenue}</code> and <code>{revenue.vs_target}</code>, which are filled from the CSV when the report is built.</p>
+<h3>Step 3: Decide the headline before you write</h3>
+<p>Ask: what is the one thing the reader needs to know this month? Write that as a verdict, for example &ldquo;Revenue is behind plan because churn rose&rdquo;. Avoid titles such as &ldquo;Revenue update&rdquo;. If you do not know the cause of a change, say &ldquo;cause to be confirmed&rdquo; rather than invent a reason. Keep to three key points and four to six metrics.</p>
+<h3>Step 4: Set targets and risks</h3>
+<p>Give each metric a target for the reporting month, or the report will have nothing to compare against. List two or three risks with an owner and a mitigation, and next steps with an owner and a date. If you do not know an owner, ask before you publish; an action with no owner is a wish.</p>
+<h3>Step 5: Rebuild the PDF</h3>
+<p>The PDF is produced by the free <code>monthly-kpi-report</code> skill, a Python script that reads these two files. If you are comfortable with Python, run it yourself; the <a href="../guides/monthly-kpi-report-pdf-from-csv.html">KPI report guide</a> explains each step. If not, the PDF still shows exactly what a good report looks like, and you can recreate the layout in your own tool, or ask a coding agent to run the skill for you.</p>
+<h3>Step 6: Make it a routine</h3>
+<p>Next month, add one row to the CSV, change the period line, update targets if they moved and rewrite only the judgement parts. Check every page before sending: no clipped text, the arrows show bad moves for lower-is-better metrics such as churn, and every figure in the text agrees with the appendix.</p>
+<h3>Common mistakes to avoid</h3>
+<p>Too many metrics, no targets and no owners are the three most common failures of monthly reports. If the first page has fourteen tiles, nobody knows which one matters. If there are no targets, a number cannot be good or bad. If next steps have no owner and date, they will not happen. Also watch for definitions that drift: if &ldquo;churn&rdquo; means something different this quarter, say so on the page. Keep the same definitions month to month so the trend means something.</p>
+<h2>Frequently asked questions</h2>
+<details><summary>Is this KPI report template free?</summary><p>Yes. All three files are free to download and use.</p></details>
+<details><summary>Can I edit the PDF?</summary><p>The PDF is the finished example. You change the CSV and notes file and rebuild with the free skill. You can also copy its structure into Word, Slides or your own reporting tool.</p></details>
+<details><summary>Which metrics should I put in?</summary><p>Four to six that someone will act on. The sample uses revenue, gross margin, new customers, churn, CAC and cash. Replace them with your own.</p></details>
+<details><summary>Does it use real data?</summary><p>No. Everything in the sample is fictional.</p></details>
+<details><summary>What if my audience wants slides?</summary><p>See the <a href="../guides/board-deck-qbr-template-ai.html">board deck and QBR guide</a>, or the <a href="pitch-deck-template-pptx.html">pitch deck template</a>.</p></details>
+<aside class="prod"><h2>Want your AI agent to make these for you, filled with your details?</h2>
+<p><strong>Boardroom Skills</strong>: free skills on GitHub / PRO from $9.99. This file was made by the free <code>monthly-kpi-report</code> skill, which a coding agent such as Claude Code can run for you after asking for your real details, so you get a finished file instead of a form to fill in. I make and sell Boardroom Skills; the six free skills are MIT licensed.</p>
+<p><strong>Founding lifetime deal:</strong> $49 once for all 14 skills and future updates, limited to the first 100 buyers, until 9 December 2026. Or $9.99 a month, or $79 a year.</p>
+<div class="cta"><a class="btn sm" href="https://github.com/boardroomskills/boardroom-skills">Free skills on GitHub</a><a class="btn sm" href="https://buy.polar.sh/polar_cl_8Eluoz141SBwedlUioV2Tea75cSlmBXNbJeQq092AAF">Founding lifetime $49</a><a class="btn sm ghost" href="https://buy.polar.sh/polar_cl_DH7gguHUD2rrUAR03HE8JdiTuI0apICjSRy6G2qSgDE">PRO $9.99 / month</a><a class="btn sm ghost" href="https://buy.polar.sh/polar_cl_CxIM1JnTMBVaCbBZLDsr9Qy8RcJWxYu5woOGn0uGYEi">PRO $79 / year</a></div></aside><nav class="related" aria-label="Related"><h2>Related templates and guides</h2><ul><li><a href="case-study-template.html">Case Study Template</a></li><li><a href="pitch-deck-template-pptx.html">Free Pitch Deck Template PPTX</a></li><li><a href="statement-of-work-template.html">Statement of Work Template</a></li><li><a href="../guides/monthly-kpi-report-pdf-from-csv.html">Monthly KPI report PDF from a CSV</a></li><li><a href="../guides/board-deck-qbr-template-ai.html">Board deck and QBR template</a></li><li><a href="index.html">All free templates</a></li></ul></nav>
+    <p class="disc">Disclosure: I make and sell Boardroom Skills. These templates are general examples, not legal, tax, financial or employment advice. Check requirements for your own situation, for example on GOV.UK or with a qualified adviser.</p>
+  </main>
+  <footer><p>Boardroom Skills. All company names, people and numbers in the templates are fictional placeholders. Free skills: MIT. PRO: commercial licence. <a href="../index.html">Home</a> &middot; <a href="../guides/index.html">Guides</a> &middot; <a href="index.html">Free templates</a> &middot; <a href="https://github.com/boardroomskills/boardroom-skills">GitHub</a></p></footer>
+</div>
+</body>
+</html>
